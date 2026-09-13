@@ -1,0 +1,683 @@
+ /* =========================
+   WHOLE LANDING PAGE
+========================= */
+
+.homePage {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   DARK OVERLAY
+   Keeps text readable over particles
+========================= */
+
+.homePage::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(21, 19, 17, 0.92) 0%,
+        rgba(21, 19, 17, 0.75) 40%,
+        rgba(21, 19, 17, 0.35) 70%,
+        rgba(21, 19, 17, 0.1) 100%
+    );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.heroSection {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   LEFT HERO SIDE
+========================= */
+
+.heroLeft {
+    width: 50%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    background: transparent;
+
+    pointer-events: none;
+
+    transform: translateY(-40px);
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.leftContent {
+    margin-left: 10vw;
+
+    max-width: 600px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.introText {
+    color: #B5987D;
+
+    font-family: monospace;
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   NAME
+========================= */
+
+.heroName {
+    color: #EED3BA;
+
+    font-size: 72px;
+
+    line-height: 0.95;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================
+   ROLE
+========================= */
+
+.roleText {
+    color: #B5987D;
+
+    font-family: monospace;
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.heroDescription {
+    color: rgba(238, 211, 186, 0.75);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    max-width: 520px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.heroButtons {
+    display: flex;
+
+    gap: 20px;
+
+    pointer-events: auto;
+}
+
+
+.primaryButton,
+.secondaryButton {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+}
+
+
+.primaryButton {
+    background-color: #4B262F;
+
+    color: #EED3BA;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 16px 28px;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.primaryButton:hover {
+    background-color: #EED3BA;
+
+    color: #4B262F;
+}
+
+
+.secondaryButton {
+    background-color: transparent;
+
+    color: #EED3BA;
+
+    border: 1px solid #EED3BA;
+
+    border-radius: 12px;
+
+    padding: 16px 28px;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.secondaryButton:hover {
+    background-color: #EED3BA;
+
+    color: #151311;
+}
+
+
+/* =========================
+   RIGHT HERO SIDE
+========================= */
+
+.heroRight {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 50%;
+    height: 100%;
+
+    z-index: 2;
+
+    background: transparent;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   TERMINAL CARD
+========================= */
+
+.terminalCard {
+    position: absolute;
+
+    width: 430px;
+    height: 285px;
+
+    top: 50%;
+    right: 22%;
+
+    transform: translateY(-50%);
+
+    background-color: #1C1A19;
+
+    border: 1px solid #4B262F;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   TERMINAL HEADER
+========================= */
+
+.terminalHeader {
+    height: 15%;
+
+    width: 100%;
+
+    padding: 10px;
+
+    border-bottom: 1px solid #3C1821;
+
+    background-color: #201F1E;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.terminalHeader span {
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background-color: #B5987D;
+}
+
+
+.terminalHeader span:nth-child(1) {
+    margin-left: 10px;
+}
+
+
+/* =========================
+   TERMINAL CONTENT
+========================= */
+
+.terminalContent {
+    height: 85%;
+
+    width: 100%;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    color: #B5987D;
+
+    font-family: monospace;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.5px;
+
+    background-color: #1C1A19;
+}
+
+
+.codeIndent {
+    padding-left: 30px;
+}
+
+
+/* =========================
+   HERO TECH STACK
+========================= */
+
+.heroSkills {
+    position: absolute;
+
+    left: 8vw;
+    right: 8vw;
+
+    top: 72%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   TECH STACK HEADER
+========================= */
+
+.heroSkillsHeader {
+    margin-bottom: 12px;
+}
+
+
+.heroSkillsHeader p {
+    color: #B65A6A;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin: 0;
+}
+
+
+/* =========================
+   MARQUEE
+========================= */
+
+.heroSkills .skillsMarquee {
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 5px 0;
+}
+
+
+/* =========================
+   MOVING TRACK
+========================= */
+
+.heroSkills .skillsTrack {
+    display: flex;
+
+    width: max-content;
+
+    align-items: center;
+
+    gap: 14px;
+
+    animation: skillsScroll 25s linear infinite;
+}
+
+
+/* =========================
+   SKILL ITEMS
+========================= */
+
+.heroSkills .skillItem {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #EED3BA;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    padding: 8px 14px;
+
+    border: 1px solid rgba(238, 211, 186, 0.18);
+
+    border-radius: 50px;
+
+    background-color: rgba(28, 26, 25, 0.35);
+}
+
+
+.heroSkills .skillItem svg {
+    width: 16px;
+
+    height: 16px;
+
+    fill: #B5987D;
+
+    flex-shrink: 0;
+}
+
+
+.heroSkills:hover .skillsTrack {
+    animation-play-state: paused;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+.navBar {
+    position: fixed;
+
+    top: 20px;
+    left: 0;
+
+    width: 100%;
+    height: 60px;
+
+    padding: 0 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 10;
+
+    pointer-events: auto;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    color: #EED3BA;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.navLinks {
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+.navLinks a {
+    color: #EED3BA;
+
+    text-decoration: none;
+
+    font-family: monospace;
+
+    font-size: 16px;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.2s ease;
+}
+
+
+.navLinks a:hover {
+    color: #B5987D;
+}
+
+
+/* =========================
+   CONNECT BUTTON
+========================= */
+
+.connectButton {
+    padding: 14px 25px;
+
+    background-color: #4B262F;
+
+    color: #EED3BA;
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.connectButton:hover {
+    background-color: #EED3BA;
+
+    color: #4B262F;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .heroName {
+        font-size: 58px;
+    }
+
+
+    .leftContent {
+        margin-left: 6vw;
+
+        max-width: 500px;
+    }
+
+
+    .terminalCard {
+        width: 380px;
+
+        height: 260px;
+
+        right: 8%;
+    }
+
+
+    .navLinks {
+        gap: 30px;
+    }
+
+
+    .heroSkills {
+        left: 6vw;
+
+        right: 6vw;
+
+        top: 74%;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .navLinks {
+        display: none;
+    }
+
+
+    .heroLeft {
+        width: 100%;
+
+        transform: translateY(-30px);
+    }
+
+
+    .heroRight {
+        display: none;
+    }
+
+
+    .leftContent {
+        margin-left: 8vw;
+
+        margin-right: 8vw;
+    }
+
+
+    .heroName {
+        font-size: 52px;
+    }
+
+
+    .heroDescription {
+        max-width: 450px;
+    }
+
+
+    .heroSkills {
+        left: 8vw;
+
+        right: 8vw;
+
+        top: 78%;
+    }
+}

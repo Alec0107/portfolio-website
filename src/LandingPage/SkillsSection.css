@@ -1,0 +1,168 @@
+/* =========================
+   TECH STACK
+========================= */
+
+.skillsSection {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding-top: 35px;
+
+    border-top: 1px solid rgba(238, 211, 186, 0.12);
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.skillsHeader {
+    margin-bottom: 20px;
+}
+
+
+.skillsLabel {
+    color: #B65A6A;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    margin: 0;
+}
+
+
+/* =========================
+   MARQUEE
+========================= */
+
+.skillsMarquee {
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 5px 0;
+}
+
+
+/* =========================
+   MOVING TRACK
+========================= */
+
+.skillsTrack {
+    display: flex;
+
+    width: max-content;
+
+    align-items: center;
+
+    gap: 14px;
+
+    animation: skillsScroll 25s linear infinite;
+}
+
+
+/* =========================
+   SKILL ITEMS
+========================= */
+.skillItem {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #EED3BA;
+
+    font-family: monospace;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    padding: 9px 16px;
+
+    border: 1px solid rgba(238, 211, 186, 0.2);
+
+    border-radius: 50px;
+
+    background-color: rgba(28, 26, 25, 0.35);
+}
+
+
+.skillItem svg {
+    width: 17px;
+
+    height: 17px;
+
+    fill: #B5987D;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes skillsScroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.skillsMarquee:hover .skillsTrack {
+    animation-play-state: paused;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .skillsSection {
+        margin-top: 10px;
+
+        padding-top: 30px;
+    }
+
+    .skillsLabel {
+        font-size: 13px;
+    }
+
+    .skillsTrack {
+        gap: 10px;
+
+        animation-duration: 20s;
+    }
+
+    .skillItem {
+        font-size: 11px;
+
+        padding: 8px 13px;
+    }
+
+}
+
