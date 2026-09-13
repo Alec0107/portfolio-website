@@ -61,7 +61,7 @@ function Homepage() {
 
                 <div className="navLinks">
                     <a href="#about">ABOUT</a>
-                    <a href="#skills">SKILLS</a>
+                    <a href="#home">SKILLS</a>
                     <a href="#projects">PROJECTS</a>
                     <a href="#contact">CONTACT</a>
                 </div>
@@ -75,7 +75,7 @@ function Homepage() {
             {/* =====================
                 HERO SECTION
             ====================== */}
-            <section className="homePage">
+            <section className="homePage" id="home">
 
                 <div className="heroLeft">
 
@@ -100,13 +100,13 @@ function Homepage() {
 
                         <div className="heroButtons">
 
-                            <button className="primaryButton">
+                            <a className="primaryButton" href="#projects">
                                 VIEW MY WORK →
-                            </button>
+                            </a>
 
-                            <button className="secondaryButton">
+                            <a className="secondaryButton" href="#about">
                                 ABOUT ME
-                            </button>
+                            </a>
 
                         </div>
                         
@@ -341,9 +341,13 @@ function Homepage() {
                         <div className="projectBottom">
 
                             <p className="projectDescription">
-                                An AI-powered customer support application
-                                built to help customers get information and
-                                assistance.
+                             An agentic AI customer support system built for an e-commerce 
+                             application, designed to help customers get information about 
+                             their accounts, orders, and deliveries. The AI understands customer 
+                             requests and uses tool calling to retrieve real-time information from 
+                             the backend, accessing customer profiles, order details, and delivery 
+                             status to provide accurate and personalized responses.
+
                             </p>
 
                             {/* CUSTOMER SUPPORT AI */}
@@ -402,8 +406,11 @@ function Homepage() {
                         <div className="projectBottom">
 
                             <p className="projectDescription">
-                                A professional website designed and developed
-                                for a real client.
+                             A full-stack website designed and developed for a real client, 
+                             combining a polished customer-facing interface with a Java and 
+                             Spring Boot backend. The project includes PostgreSQL data management 
+                             and a responsive web experience built around the client's business needs.
+
                             </p>
 
                             <div className="projectTechnologies">
@@ -466,7 +473,7 @@ function Homepage() {
 
                             <div className="projectTechnologies">
                                 <span>N8N</span>
-                                <span>AI</span>
+                                <span>OPENAI</span>
                                 <span>GMAIL</span>
                             </div>
 
