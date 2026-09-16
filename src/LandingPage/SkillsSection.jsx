@@ -154,7 +154,10 @@ function SkillsSection() {
 
 
                                     <span className="skillArrow">
-                                        ↗
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M5 19L19 5" />
+                                            <path d="M9 5H19V15" />
+                                        </svg>
                                     </span>
 
                                 </div>
