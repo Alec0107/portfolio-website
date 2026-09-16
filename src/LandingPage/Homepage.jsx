@@ -25,7 +25,7 @@ import SkillsSection from "./SkillsSection";
 import ContactSection from "./ContactSection";
 import ParticlesBackground from "./ParticlesBackground";
 
-import profilePhoto from "../assets/profile.png";
+import profilePhoto from "../assets/profile.jpg";
 import imperial from "../assets/imperial.png";
 import customerSupport from "../assets/customerSupport.png";
 import aiEmail from "../assets/n8n1.png";
@@ -267,6 +267,16 @@ function Homepage() {
                         CONTACT
                     </a>
 
+                    <a
+                        href="/Mel-Rich-Nicholas-CV.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cvLink"
+                    >
+                        VIEW CV
+                        <span>↗</span>
+                    </a>
+
                 </div>
 
 
@@ -350,6 +360,16 @@ function Homepage() {
                         onClick={closeMobileMenu}
                     >
                         CONTACT
+                    </a>
+
+                    <a
+                        href="/Mel-Rich-Nicholas-CV.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cvLink"
+                    >
+                        VIEW CV
+                        <span>↗</span>
                     </a>
 
 
