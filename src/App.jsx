@@ -6,8 +6,6 @@ import './App.css'
 import Homepage from "./LandingPage/Homepage.jsx";
 
 function App() {
-
-
   return (
     <Homepage/>
   )

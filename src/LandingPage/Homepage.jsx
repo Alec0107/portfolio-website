@@ -422,9 +422,9 @@ function Homepage() {
 
                         <p className="heroDescription">
 
-                            I design and build clean, functional,
-                            and meaningful web applications
-                            that solve real problems.
+                            I turn ideas into thoughtful, 
+                            functional digital experiences 
+                            built to solve real-world problems.
 
                         </p>
 
@@ -595,19 +595,22 @@ function Homepage() {
 
                     <p className="aboutText">
 
-                        I'm Mel Rich Nicholas, a full stack
-                        developer who enjoys turning ideas
-                        into clean, functional, and meaningful
-                        web applications.
+                    I'm Mel Rich Nicholas, a Software Developer and Computer Science
+                    graduate based in Singapore. My journey into tech started with
+                    studying Information Technology, where I built my foundation in
+                    programming and software development before continuing on to
+                    complete my Bachelor's degree in Computer Science.
 
                     </p>
 
 
                     <p className="aboutText">
 
-                        I enjoy solving problems, learning
-                        new technologies, and building things
-                        that make a difference.
+                    Since then, I've been focused on building things and learning by
+                    doing. I've developed full-stack applications, worked on a real
+                    business project, and explored AI and automation through projects
+                    of my own. I enjoy taking an idea, figuring out how it can work,
+                    and turning it into something people can actually use.
 
                     </p>
 
