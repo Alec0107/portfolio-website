@@ -6,6 +6,7 @@ html {
     scroll-behavior: smooth;
 }
 
+
 /* =========================
    WHOLE LANDING PAGE
 ========================= */
@@ -31,6 +32,7 @@ html {
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     background: linear-gradient(
@@ -70,6 +72,7 @@ html {
     height: 100vh;
 
     display: flex;
+
     align-items: center;
 
     position: relative;
@@ -495,6 +498,23 @@ html {
 
 
 /* =========================
+   MARQUEE ANIMATION
+========================= */
+
+@keyframes skillsScroll {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
    NAVIGATION BAR
 ========================= */
 
@@ -509,30 +529,177 @@ html {
 
     padding: 0 60px;
 
+    box-sizing: border-box;
+
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
 
-    z-index: 10;
+    z-index: 100;
 
     pointer-events: auto;
 }
 
 
 /* =========================
-   LOGO
+   MN LOGO
 ========================= */
 
 .logo {
+    position: relative;
+}
+
+
+.logoLink {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
     color: #EED3BA;
+}
 
-    font-size: 22px;
 
-    font-weight: bold;
+/* =========================
+   LOGO MARK
+========================= */
+
+.logoMark {
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(238, 211, 186, 0.35);
+
+    background-color: rgba(28, 26, 25, 0.65);
+
+    overflow: hidden;
+
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================
+   LOGO ACCENTS
+========================= */
+
+.logoMark::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 8px;
+    height: 1px;
+
+    background-color: #B65A6A;
+}
+
+
+.logoMark::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+
+    width: 8px;
+    height: 1px;
+
+    background-color: #B65A6A;
+}
+
+
+/* =========================
+   M + N
+========================= */
+
+.logoM,
+.logoN {
+    position: absolute;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: #EED3BA;
+}
+
+
+.logoM {
+    transform: translateX(-4px);
+}
+
+
+.logoN {
+    transform: translateX(4px);
+
+    color: #B5987D;
+}
+
+
+/* =========================
+   LOGO NAME
+========================= */
+
+.logoName {
+    color: #B5987D;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    font-weight: 500;
 
     letter-spacing: 2px;
+
+    transition: color 0.3s ease;
+}
+
+
+/* =========================
+   LOGO HOVER
+========================= */
+
+.logoLink:hover .logoMark {
+    border-color: #EED3BA;
+
+    background-color: #4B262F;
+
+    transform: translateY(-1px);
+}
+
+
+.logoLink:hover .logoM,
+.logoLink:hover .logoN {
+    color: #EED3BA;
+}
+
+
+.logoLink:hover .logoName {
+    color: #EED3BA;
 }
 
 
@@ -574,6 +741,14 @@ html {
 ========================= */
 
 .connectButton {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
     padding: 14px 25px;
 
     background-color: #4B262F;
@@ -600,6 +775,273 @@ html {
     background-color: #EED3BA;
 
     color: #4B262F;
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.mobileMenuButton {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 10px;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    background-color: rgba(28, 26, 25, 0.85);
+
+    border: 1px solid rgba(238, 211, 186, 0.25);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    z-index: 110;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.mobileMenuButton:hover {
+    background-color: #4B262F;
+
+    border-color: #EED3BA;
+}
+
+
+.mobileMenuButton span {
+    display: block;
+
+    width: 18px;
+    height: 1px;
+
+    background-color: #EED3BA;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON ANIMATION
+========================= */
+
+.mobileMenuButton.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+
+.mobileMenuButton.open span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.mobileMenuButton.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobileMenu {
+    display: none;
+
+    position: fixed;
+
+    top: 90px;
+    left: 20px;
+    right: 20px;
+
+    z-index: 90;
+
+    background-color: rgba(28, 26, 25, 0.97);
+
+    border: 1px solid rgba(238, 211, 186, 0.15);
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.mobileMenu.open {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+
+.mobileMenuLinks {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.mobileMenuLinks a {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 16px 10px;
+
+    color: #EED3BA;
+
+    text-decoration: none;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 1.5px;
+
+    border-bottom: 1px solid rgba(238, 211, 186, 0.08);
+
+    transition:
+        color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+
+.mobileMenuLinks a:hover {
+    color: #B65A6A;
+
+    padding-left: 16px;
+}
+
+
+.mobileMenuLinks a:last-child {
+    margin-top: 15px;
+
+    border: 1px solid #4B262F;
+
+    border-radius: 50px;
+
+    background-color: #4B262F;
+
+    justify-content: center;
+
+    padding: 14px 20px;
+}
+
+
+.mobileMenuLinks a:last-child:hover {
+    color: #4B262F;
+
+    background-color: #EED3BA;
+
+    padding-left: 20px;
+}
+
+
+/* =========================
+   DROPZONE
+========================= */
+
+.dropzone {
+    width: 100%;
+    height: 100%;
+
+    background-color: #1C1A19;
+}
+
+
+.dropzone.dragging {
+    background-color: #ac5a3a;
+
+    border: 2px dashed #EED3BA;
+}
+
+
+/* =========================
+   PROJECT LINK
+========================= */
+
+.projectLink {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 13px 20px;
+
+    margin-top: 10px;
+
+    background-color: #4B262F;
+
+    color: #EED3BA;
+
+    border: 1px solid #4B262F;
+
+    border-radius: 8px;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.projectLink:hover {
+    background-color: #EED3BA;
+
+    color: #4B262F;
+
+    border-color: #EED3BA;
+
+    transform: translateY(-2px);
+}
+
+
+.projectLink:active {
+    transform: translateY(0);
 }
 
 
@@ -642,18 +1084,57 @@ html {
 
         top: 74%;
     }
+
 }
 
 
 @media (max-width: 850px) {
+
+    /* =========================
+       MOBILE NAVBAR
+    ========================= */
+
+    .navBar {
+        top: 15px;
+
+        padding: 0 25px;
+
+        height: 55px;
+    }
+
 
     .navLinks {
         display: none;
     }
 
 
+    .connectButton {
+        display: none;
+    }
+
+
+    .mobileMenuButton {
+        display: flex;
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    .mobileMenu {
+        display: block;
+    }
+
+
+    /* =========================
+       MOBILE HERO
+    ========================= */
+
     .heroLeft {
         width: 100%;
+
+        height: 100vh;
 
         transform: translateY(-30px);
     }
@@ -688,4 +1169,130 @@ html {
 
         top: 78%;
     }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .navBar {
+        padding: 0 18px;
+    }
+
+
+    .logoMark {
+        width: 35px;
+
+        height: 35px;
+    }
+
+
+    .heroLeft {
+        transform: translateY(-20px);
+    }
+
+
+    .leftContent {
+        margin-left: 7vw;
+
+        margin-right: 7vw;
+    }
+
+
+    .introText {
+        font-size: 16px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .heroName {
+        font-size: 43px;
+
+        letter-spacing: 1px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .roleText {
+        font-size: 16px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .heroDescription {
+        font-size: 15px;
+
+        line-height: 1.6;
+
+        margin-bottom: 28px;
+    }
+
+
+    .heroButtons {
+        gap: 10px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .primaryButton,
+    .secondaryButton {
+        padding: 13px 18px;
+
+        font-size: 11px;
+    }
+
+
+    .heroSkills {
+        left: 7vw;
+
+        right: 7vw;
+
+        top: 79%;
+    }
+
+
+    .heroSkillsHeader p {
+        font-size: 10px;
+    }
+
+
+    .heroSkills .skillItem {
+        font-size: 10px;
+
+        padding: 7px 11px;
+    }
+
+
+    .heroSkills .skillItem svg {
+        width: 14px;
+
+        height: 14px;
+    }
+
+
+    .mobileMenu {
+        top: 80px;
+
+        left: 12px;
+
+        right: 12px;
+
+        padding: 20px;
+    }
+
+
+    .mobileMenuLinks a {
+        font-size: 12px;
+
+        padding: 14px 8px;
+    }
+
 }

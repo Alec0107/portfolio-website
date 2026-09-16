@@ -1,0 +1,421 @@
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contactSection {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 150px 8% 40px;
+
+    box-sizing: border-box;
+
+    background-color: #151311;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.contactContainer {
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.contactHeader {
+    border-top: 1px solid rgba(238, 211, 186, 0.12);
+
+    padding-top: 25px;
+
+    margin-bottom: 80px;
+}
+
+
+.contactLabel {
+    margin: 0 0 25px;
+
+    color: #B65A6A;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.contactTitle {
+    margin: 0;
+
+    color: #EED3BA;
+
+    font-size: clamp(60px, 9vw, 120px);
+
+    font-weight: 500;
+
+    line-height: 0.88;
+
+    letter-spacing: -4px;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.contactContent {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    padding-bottom: 80px;
+
+    border-bottom: 1px solid rgba(238, 211, 186, 0.12);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.contactMessage {
+    max-width: 420px;
+}
+
+
+.contactMessage p {
+    margin: 0;
+
+    color: rgba(238, 211, 186, 0.55);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   CONTACT DETAILS
+========================= */
+
+.contactDetails {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+}
+
+
+/* =========================
+   EMAIL
+========================= */
+
+.contactEmail {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding-bottom: 18px;
+
+    color: #EED3BA;
+
+    border-bottom: 1px solid rgba(238, 211, 186, 0.2);
+
+    font-family: monospace;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.contactEmail span {
+    color: #B65A6A;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.contactEmail:hover {
+    color: #B65A6A;
+
+    border-color: #B65A6A;
+}
+
+
+.contactEmail:hover span {
+    color: #EED3BA;
+
+    transform: translate(4px, -4px);
+}
+
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.contactLinks {
+    display: flex;
+
+    gap: 35px;
+
+    margin-top: 25px;
+}
+
+
+.contactLinks a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #B5987D;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+
+.contactLinks a span {
+    color: #4B262F;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.contactLinks a:hover {
+    color: #EED3BA;
+}
+
+
+.contactLinks a:hover span {
+    color: #B65A6A;
+
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================
+   ACTION
+========================= */
+
+.contactAction {
+    padding: 70px 0;
+}
+
+
+.contactButton {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    min-width: 230px;
+
+    padding: 18px 22px;
+
+    background-color: #4B262F;
+
+    color: #EED3BA;
+
+    border: 1px solid #4B262F;
+
+    border-radius: 10px;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.contactButton span {
+    font-size: 18px;
+
+    transition: transform 0.25s ease;
+}
+
+
+.contactButton:hover {
+    background-color: #EED3BA;
+
+    color: #4B262F;
+
+    border-color: #EED3BA;
+
+    transform: translateY(-3px);
+}
+
+
+.contactButton:hover span {
+    transform: translate(4px, -4px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.contactFooter {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(238, 211, 186, 0.12);
+
+    color: rgba(181, 152, 125, 0.6);
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .contactSection {
+        min-height: auto;
+
+        padding: 120px 7% 35px;
+    }
+
+
+    .contactHeader {
+        margin-bottom: 60px;
+    }
+
+
+    .contactTitle {
+        font-size: clamp(55px, 14vw, 85px);
+
+        letter-spacing: -3px;
+    }
+
+
+    .contactContent {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding-bottom: 60px;
+    }
+
+
+    .contactMessage {
+        max-width: 500px;
+    }
+
+
+    .contactAction {
+        padding: 50px 0;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .contactSection {
+        padding: 100px 6% 30px;
+    }
+
+
+    .contactTitle {
+        font-size: 52px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .contactMessage p {
+        font-size: 14px;
+    }
+
+
+    .contactEmail {
+        font-size: 14px;
+    }
+
+
+    .contactLinks {
+        gap: 20px;
+    }
+
+
+    .contactFooter {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+        line-height: 1.6;
+    }
+
+}

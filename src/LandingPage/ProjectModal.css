@@ -1,0 +1,426 @@
+/* =========================
+   MODAL OVERLAY
+========================= */
+
+.projectModalOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(21, 19, 17, 0.82);
+
+    backdrop-filter: blur(10px);
+
+    overflow-y: auto;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.projectModal {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background-color: #1C1A19;
+
+    border: 1px solid #4B262F;
+
+    border-radius: 18px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+
+    animation: projectModalIn 0.25s ease;
+}
+
+
+@keyframes projectModalIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.projectModalClose {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #201F1E;
+
+    color: #EED3BA;
+
+    border: 1px solid #4B262F;
+
+    border-radius: 50%;
+
+    font-family: monospace;
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.projectModalClose:hover {
+    background-color: #EED3BA;
+
+    color: #4B262F;
+
+    border-color: #EED3BA;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.projectModalHeader {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding-right: 55px;
+
+    margin-bottom: 30px;
+}
+
+
+.projectModalCategory {
+    margin: 0 0 10px;
+
+    color: #B5987D;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.projectModalTitle {
+    margin: 0;
+
+    color: #EED3BA;
+
+    font-size: clamp(32px, 5vw, 60px);
+
+    line-height: 0.95;
+
+    letter-spacing: 1px;
+}
+
+
+.projectModalNumber {
+    color: #B65A6A;
+
+    font-family: monospace;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   PROJECT IMAGE
+========================= */
+
+.projectModalImage {
+    width: 100%;
+
+    margin-bottom: 35px;
+
+    overflow: hidden;
+
+    background-color: #151311;
+
+    border: 1px solid #3C1821;
+
+    border-radius: 12px;
+}
+
+
+.projectModalImage img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.projectModalContent {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 50px;
+}
+
+
+.projectModalLabel {
+    margin: 0 0 15px;
+
+    color: #B65A6A;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.projectModalDescription p:last-child {
+    margin: 0;
+
+    max-width: 600px;
+
+    color: rgba(238, 211, 186, 0.75);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   TECHNOLOGIES
+========================= */
+
+.projectModalTechnologies {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.projectModalTechnologies span {
+    padding: 8px 12px;
+
+    background-color: rgba(28, 26, 25, 0.6);
+
+    color: #EED3BA;
+
+    border: 1px solid rgba(238, 211, 186, 0.18);
+
+    border-radius: 50px;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.projectModalActions {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 5px;
+}
+
+
+.projectModalButton {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 20px;
+
+    border-radius: 8px;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+
+.projectModalButton.primary {
+    background-color: #4B262F;
+
+    color: #EED3BA;
+
+    border: 1px solid #4B262F;
+}
+
+
+.projectModalButton.primary:hover {
+    background-color: #EED3BA;
+
+    color: #4B262F;
+
+    border-color: #EED3BA;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SECONDARY BUTTON
+========================= */
+
+.projectModalButton.secondary {
+    background-color: transparent;
+
+    color: #EED3BA;
+
+    border: 1px solid #EED3BA;
+}
+
+
+.projectModalButton.secondary:hover {
+    background-color: #EED3BA;
+
+    color: #151311;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.projectModal::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.projectModal::-webkit-scrollbar-track {
+    background: #151311;
+}
+
+
+.projectModal::-webkit-scrollbar-thumb {
+    background: #4B262F;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .projectModalOverlay {
+        padding: 15px;
+    }
+
+
+    .projectModal {
+        padding: 25px;
+
+        max-height: 95vh;
+
+        border-radius: 14px;
+    }
+
+
+    .projectModalHeader {
+        padding-right: 45px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .projectModalContent {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+
+    .projectModalActions {
+        grid-column: auto;
+
+        flex-direction: column;
+    }
+
+
+    .projectModalButton {
+        width: 100%;
+    }
+
+}
