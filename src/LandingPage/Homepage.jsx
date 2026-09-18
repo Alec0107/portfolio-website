@@ -908,14 +908,12 @@ function Homepage() {
 
                             <p className="projectDescription">
 
-                                A full-stack website designed
-                                and developed for a real client,
-                                combining a polished customer-facing
-                                interface with a Java and Spring Boot
-                                backend. The project includes
-                                PostgreSQL data management and
-                                a responsive web experience built
-                                around the client's business needs.
+                            A full-stack restaurant website built for a real client, 
+                            featuring a responsive interface, online reservation functionality, 
+                            and a Java/Spring Boot backend with PostgreSQL database integration. 
+                            The project covers the complete development lifecycle from frontend design to backend APIs, 
+                            data management, and deployment.
+
 
                             </p>
 
@@ -1005,10 +1003,10 @@ function Homepage() {
 
                             <p className="projectDescription">
 
-                                An AI-powered n8n workflow that
-                                processes incoming emails,
-                                summarizes them, determines
-                                actions, and generates responses.
+                        An AI-powered email agent that summarizes incoming emails, 
+                        classifies them, detects required actions, generates reply drafts, 
+                        checks calendar availability, creates calendar events, and routes 
+                        follow-up/no-action emails automatically, with human approval before sending.
 
                             </p>
 
