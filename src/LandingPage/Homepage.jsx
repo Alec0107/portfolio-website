@@ -32,6 +32,7 @@ import imperial from "../assets/imperial.png";
 import customerSupport from "../assets/customerSupport.png";
 import aiEmail from "../assets/n8n1.png";
 import calendarManagement from "../assets/calendarManagement.png";
+import emailOrganizer from "../assets/emailOrganizer.png";
 
 const PROJECT_GROUPS = [
     {
@@ -159,7 +160,7 @@ const PROJECTS = [
         group: "va",
         category: "EMAIL & INBOX ORGANIZATION",
         name: "INBOX MANAGEMENT",
-        image: null,
+        image: emailOrganizer,
         status: "PLANNED DEMO",
         description:
             "A planned fictional business scenario demonstrating how emails can be categorized by priority, summarized, organized for follow-up, and prepared for professional responses.",
