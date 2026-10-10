@@ -30,7 +30,7 @@ import profilePhoto from "../assets/profile.jpg";
 import imperial from "../assets/imperial.png";
 import customerSupport from "../assets/customerSupport.png";
 import aiEmail from "../assets/n8n1.png";
-import calendarManagement from "../assets/CalendarManagement.png";
+import calendarManagement from "../assets/calendarManagement.png";
 const PROJECT_GROUPS = [
     {
         id: "development",
