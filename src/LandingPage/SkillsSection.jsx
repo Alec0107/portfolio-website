@@ -93,18 +93,17 @@ function SkillsSection() {
 
         <section
             className="skillsSection"
-            id="skills"
         >
 
             <div className="skillsHeader">
 
                 <div>
 
-                    <p className="skillsLabel">
+                    <p className="skillsLabel" >
                         TECHNOLOGIES
                     </p>
 
-                    <h2 className="skillsTitle">
+                    <h2 className="skillsTitle" >
                         What I work
                         <br />
                         with.
@@ -113,7 +112,7 @@ function SkillsSection() {
                 </div>
 
 
-                <p className="skillsIntro">
+                <p className="skillsIntro"  id="skills">
                     A collection of technologies I use to build
                     full-stack applications, AI-powered systems,
                     and practical digital experiences.

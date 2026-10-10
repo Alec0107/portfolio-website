@@ -1,6 +1,6 @@
 
 /* =========================
-   SMOOTH SCROLLING / GLOBAL
+   GLOBAL / SMOOTH SCROLLING
 ========================= */
 
 html {
@@ -12,37 +12,19 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    background: #151311;
+}
+
 .homePage {
     position: relative;
     isolation: isolate;
     width: 100%;
     min-height: 100vh;
-    background: transparent;
     overflow-x: clip;
+    background: #151311;
     color: #EED3BA;
-}
-
-/* =========================
-   HERO BACKGROUND OVERLAY
-========================= */
-
-.homePage::before {
-    content: none;
-}
-
-.heroSection::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        90deg,
-        rgba(21, 19, 17, 0.92) 0%,
-        rgba(21, 19, 17, 0.75) 40%,
-        rgba(21, 19, 17, 0.35) 70%,
-        rgba(21, 19, 17, 0.1) 100%
-    );
-    z-index: 0;
-    pointer-events: none;
 }
 
 .homePage > nav,
@@ -63,76 +45,116 @@ html {
     z-index: 2;
 }
 
+#about,
+#skills,
+#projects,
+#contact,
+.portfolioGroup {
+    scroll-margin-top: 105px;
+}
+
 /* =========================
    HERO SECTION
 ========================= */
 
 .heroSection {
     position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: stretch;
     width: 100%;
-    min-height: 100vh;
+    min-height: max(850px, 100svh);
     overflow: hidden;
     z-index: 2;
+    background: #191715;
+}
+
+.heroSection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 78% 42%,
+            rgba(75, 38, 47, 0.2),
+            transparent 42%
+        ),
+        linear-gradient(
+            110deg,
+            #191715 0%,
+            #1d1a19 58%,
+            #211c1b 100%
+        );
 }
 
 .heroLeft {
-    width: 50%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
     position: relative;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    width: 55%;
+    min-height: 0;
+    padding: 155px 0 210px;
     background: transparent;
     pointer-events: none;
-    transform: translateY(-40px);
 }
 
 .leftContent {
-    margin-left: 10vw;
-    max-width: 600px;
     position: relative;
     z-index: 5;
+    width: 100%;
+    max-width: 600px;
+    margin-left: 8vw;
+    margin-right: 24px;
     pointer-events: auto;
 }
 
 .introText {
+    margin: 0 0 20px;
     color: #B5987D;
     font-family: monospace;
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 1.6;
     letter-spacing: 3px;
-    margin-bottom: 25px;
 }
 
 .heroName {
+    margin: 0 0 26px;
     color: #EED3BA;
-    font-size: 72px;
-    line-height: 0.95;
-    letter-spacing: 2px;
-    margin: 0 0 28px;
+    font-size: clamp(48px, 5vw, 68px);
+    font-weight: 650;
+    line-height: 1.02;
+    letter-spacing: 1px;
     overflow-wrap: anywhere;
 }
 
 .roleText {
-    color: #B5987D;
+    margin: 0 0 22px;
+    color: #C29A85;
     font-family: monospace;
-    font-size: 20px;
-    line-height: 1.6;
-    letter-spacing: 3px;
-    margin-bottom: 25px;
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 1.6px;
 }
 
 .heroDescription {
-    color: rgba(238, 211, 186, 0.75);
-    font-size: 18px;
-    line-height: 1.7;
     max-width: 520px;
-    margin-bottom: 35px;
+    margin: 0 0 28px;
+    color: rgba(238, 211, 186, 0.86);
+    font-size: 15px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
 }
 
 .heroButtons {
+    position: relative;
+    z-index: 7;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    align-items: center;
+    gap: 14px;
     pointer-events: auto;
 }
 
@@ -141,48 +163,57 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-height: 48px;
+    padding: 14px 22px;
+    border-radius: 9px;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
     text-decoration: none;
-    transition: 0.3s ease;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+    cursor: pointer;
 }
 
 .primaryButton {
-    background-color: #4B262F;
-    color: #EED3BA;
-    border: 1px solid #4B262F;
-    border-radius: 12px;
-    padding: 16px 28px;
-    font-family: monospace;
-    font-size: 14px;
-    cursor: pointer;
+    color: #F1DCC8;
+    background: #572C37;
+    border: 1px solid #572C37;
 }
 
 .primaryButton:hover {
-    background-color: #EED3BA;
-    color: #4B262F;
+    color: #211a18;
+    background: #EED3BA;
     border-color: #EED3BA;
+    transform: translateY(-2px);
 }
 
 .secondaryButton {
-    background-color: transparent;
     color: #EED3BA;
-    border: 1px solid #EED3BA;
-    border-radius: 12px;
-    padding: 16px 28px;
-    font-family: monospace;
-    font-size: 14px;
-    cursor: pointer;
+    background: rgba(36, 34, 32, 0.6);
+    border: 1px solid rgba(238, 211, 186, 0.55);
 }
 
 .secondaryButton:hover {
-    background-color: #EED3BA;
-    color: #151311;
+    color: #211a18;
+    background: #EED3BA;
+    border-color: #EED3BA;
+    transform: translateY(-2px);
 }
+
+/* =========================
+   HERO TERMINAL
+========================= */
 
 .heroRight {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50%;
+    width: 48%;
     height: 100%;
     z-index: 2;
     background: transparent;
@@ -191,55 +222,58 @@ html {
 
 .terminalCard {
     position: absolute;
-    width: min(430px, 85%);
-    min-height: 285px;
-    top: 50%;
-    right: 22%;
-    transform: translateY(-50%);
-    background-color: #1C1A19;
-    border: 1px solid #4B262F;
-    border-radius: 20px;
+    top: 43%;
+    right: 17%;
     display: flex;
     flex-direction: column;
+    width: min(430px, 85%);
+    min-height: 285px;
     overflow: hidden;
+    transform: translateY(-50%);
+    background: #242220;
+    border: 1px solid rgba(182, 90, 106, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 22px 65px rgba(0, 0, 0, 0.25);
     z-index: 5;
 }
 
 .terminalHeader {
-    min-height: 42px;
-    width: 100%;
-    padding: 10px;
-    border-bottom: 1px solid #3C1821;
-    background-color: #201F1E;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 14px;
+    background: #2B2826;
+    border-bottom: 1px solid rgba(238, 211, 186, 0.1);
 }
 
 .terminalHeader span {
     width: 8px;
     height: 8px;
+    flex-shrink: 0;
     border-radius: 50%;
-    background-color: #B5987D;
+    background: #B5987D;
 }
 
-.terminalHeader span:nth-child(1) {
-    margin-left: 10px;
+.terminalHeader span:first-child {
+    margin-left: 4px;
+    background: #B65A6A;
 }
 
 .terminalContent {
-    flex: 1;
-    width: 100%;
-    padding: 25px;
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
-    color: #B5987D;
+    width: 100%;
+    padding: 24px;
+    color: #D7B99F;
+    background: #242220;
     font-family: monospace;
-    font-size: 15px;
-    line-height: 1.8;
-    letter-spacing: 0.5px;
-    background-color: #1C1A19;
+    font-size: 13px;
+    line-height: 1.9;
+    letter-spacing: 0.1px;
     overflow-wrap: anywhere;
 }
 
@@ -248,69 +282,96 @@ html {
 }
 
 .codeIndent {
-    padding-left: 30px;
+    padding-left: 22px;
 }
 
 /* =========================
-   HERO TECH STACK
+   HERO SKILLS MARQUEE
 ========================= */
 
 .heroSkills {
     position: absolute;
     left: 8vw;
     right: 8vw;
-    top: 78%;
-    transform: translateY(-50%);
-    z-index: 5;
+    bottom: 34px;
+    z-index: 6;
     overflow: hidden;
+    padding: 15px 18px 12px;
+    background: rgba(36, 34, 32, 0.94);
+    border: 1px solid rgba(238, 211, 186, 0.14);
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.16);
 }
 
 .heroSkillsHeader {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .heroSkillsHeader p {
-    color: #B65A6A;
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
     margin: 0;
+    color: #D17B88;
+    font-family: monospace;
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 2px;
 }
 
 .heroSkills .skillsMarquee {
     width: 100%;
     overflow: hidden;
-    padding: 5px 0;
+    padding: 4px 0;
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 3%,
+        #000 97%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 3%,
+        #000 97%,
+        transparent
+    );
 }
 
 .heroSkills .skillsTrack {
     display: flex;
-    width: max-content;
     align-items: center;
-    gap: 14px;
-    animation: skillsScroll 25s linear infinite;
+    gap: 12px;
+    width: max-content;
+    animation: skillsScroll 35s linear infinite;
 }
 
 .heroSkills .skillItem {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 8px 12px;
     color: #EED3BA;
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 1px;
-    white-space: nowrap;
-    padding: 8px 14px;
-    border: 1px solid rgba(238, 211, 186, 0.18);
+    background: #302C29;
+    border: 1px solid rgba(238, 211, 186, 0.15);
     border-radius: 50px;
-    background-color: rgba(28, 26, 25, 0.8);
+    font-family: monospace;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
 }
 
 .heroSkills .skillItem svg {
-    width: 16px;
-    height: 16px;
-    fill: #B5987D;
+    display: block;
+    width: 15px;
+    height: 15px;
     flex-shrink: 0;
+    fill: #D1A58C;
+}
+
+.skillTextIcon {
+    color: #D17B88;
+    line-height: 1;
 }
 
 .heroSkills:hover .skillsTrack {
@@ -332,31 +393,25 @@ html {
 ========================= */
 
 .navBar {
-    position: fixed;
+    position: fixed !important;
     top: 16px;
     left: 50%;
-    transform: translateX(-50%);
-
-    width: calc(100% - 64px);
-    max-width: 1600px;
-    height: 68px;
-    padding: 0 28px;
-
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-
-    background: rgba(21, 19, 17, 0.92);
-    border: 1px solid rgba(238, 211, 186, 0.15);
+    width: calc(100% - 64px);
+    max-width: 1600px;
+    height: 68px;
+    padding: 0 28px;
+    transform: translateX(-50%);
+    background: rgba(25, 23, 21, 0.96);
+    border: 1px solid rgba(238, 211, 186, 0.16);
     border-radius: 14px;
-
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
-
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-
-    z-index: 100;
     pointer-events: auto;
 }
 
@@ -369,20 +424,20 @@ html {
     display: flex;
     align-items: center;
     gap: 12px;
-    text-decoration: none;
     color: #EED3BA;
+    text-decoration: none;
 }
 
 .logoMark {
     position: relative;
-    width: 38px;
-    height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(238, 211, 186, 0.35);
-    background-color: rgba(28, 26, 25, 0.85);
+    width: 38px;
+    height: 38px;
     overflow: hidden;
+    background: #2A2725;
+    border: 1px solid rgba(238, 211, 186, 0.35);
     transition:
         border-color 0.3s ease,
         background-color 0.3s ease,
@@ -391,11 +446,11 @@ html {
 
 .logoMark::before,
 .logoMark::after {
-    content: "";
     position: absolute;
     width: 8px;
     height: 1px;
-    background-color: #B65A6A;
+    content: "";
+    background: #B65A6A;
 }
 
 .logoMark::before {
@@ -404,18 +459,18 @@ html {
 }
 
 .logoMark::after {
-    bottom: 0;
     right: 0;
+    bottom: 0;
 }
 
 .logoM,
 .logoN {
     position: absolute;
+    color: #EED3BA;
     font-family: Arial, sans-serif;
     font-size: 17px;
     font-weight: 700;
     line-height: 1;
-    color: #EED3BA;
 }
 
 .logoM {
@@ -423,8 +478,8 @@ html {
 }
 
 .logoN {
-    transform: translateX(4px);
     color: #B5987D;
+    transform: translateX(4px);
 }
 
 .logoName {
@@ -437,16 +492,13 @@ html {
 }
 
 .logoLink:hover .logoMark {
+    background: #572C37;
     border-color: #EED3BA;
-    background-color: #4B262F;
     transform: translateY(-1px);
 }
 
 .logoLink:hover .logoM,
-.logoLink:hover .logoN {
-    color: #EED3BA;
-}
-
+.logoLink:hover .logoN,
 .logoLink:hover .logoName {
     color: #EED3BA;
 }
@@ -465,20 +517,27 @@ html {
 .navLinks > a,
 .navDropdownTrigger {
     color: #EED3BA;
-    text-decoration: none;
     font-family: monospace;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .navLinks > a:hover,
 .navDropdownTrigger:hover {
-    color: #B5987D;
+    color: #D1A58C;
+}
+
+.cvLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
 }
 
 /* =========================
-   DESKTOP PROJECTS DROPDOWN
+   DESKTOP PROJECT DROPDOWN
 ========================= */
 
 .navDropdown {
@@ -499,23 +558,15 @@ html {
     white-space: nowrap;
 }
 
-/* Align the arrow with the Projects text */
 .dropdownArrow {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-
     width: 12px;
     height: 16px;
-
+    flex-shrink: 0;
     font-size: 16px;
     line-height: 1;
-
-    position: relative;
-    top: 0;
-
-    transform: rotate(0deg);
     transition: transform 0.25s ease;
 }
 
@@ -528,33 +579,29 @@ html {
     position: absolute;
     top: calc(100% - 5px);
     left: 50%;
+    z-index: 120;
     width: 270px;
     padding: 10px;
-
-    background-color: rgba(28, 26, 25, 0.98);
-    border: 1px solid rgba(238, 211, 186, 0.16);
+    transform: translate(-50%, 8px);
+    background: rgba(36, 34, 32, 0.99);
+    border: 1px solid rgba(238, 211, 186, 0.17);
     border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translate(-50%, 8px);
-
     transition:
         opacity 0.2s ease,
         transform 0.2s ease,
         visibility 0.2s ease;
-
-    z-index: 120;
 }
 
 .navDropdown:hover .navDropdownMenu,
 .navDropdown:focus-within .navDropdownMenu {
+    transform: translate(-50%, 0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translate(-50%, 0);
 }
 
 .navDropdownItem {
@@ -562,23 +609,22 @@ html {
     align-items: center;
     gap: 12px;
     padding: 14px 12px;
-    border-radius: 7px;
-    text-decoration: none;
     color: #EED3BA;
-
+    text-decoration: none;
+    border-radius: 7px;
     transition:
         background-color 0.2s ease,
         color 0.2s ease;
 }
 
 .navDropdownItem:hover {
-    background-color: rgba(75, 38, 47, 0.7);
     color: #EED3BA;
+    background: rgba(87, 44, 55, 0.75);
 }
 
 .dropdownNumber {
     flex-shrink: 0;
-    color: #B65A6A;
+    color: #D17B88;
     font-family: monospace;
     font-size: 11px;
 }
@@ -586,24 +632,13 @@ html {
 .dropdownItemText {
     flex: 1;
     font-family: monospace;
-    font-size: 11px;
-    letter-spacing: 0.5px;
+    font-size: 10px;
+    letter-spacing: 0.4px;
 }
 
 .dropdownItemArrow {
     color: #B5987D;
     font-size: 14px;
-}
-
-/* =========================
-   CV LINK
-========================= */
-
-.cvLink {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    white-space: nowrap;
 }
 
 /* =========================
@@ -615,23 +650,26 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    padding: 14px 25px;
-    background-color: #4B262F;
-    color: #EED3BA;
-    border: 1px solid #4B262F;
+    padding: 13px 22px;
+    color: #F1DCC8;
+    background: #572C37;
+    border: 1px solid #572C37;
     border-radius: 50px;
     font-family: monospace;
-    font-size: 13px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: 0.3s ease;
+    font-size: 11px;
+    letter-spacing: 0.7px;
+    text-decoration: none;
     white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .connectButton:hover {
-    background-color: #EED3BA;
-    color: #4B262F;
+    color: #211a18;
+    background: #EED3BA;
     border-color: #EED3BA;
 }
 
@@ -641,14 +679,14 @@ html {
 
 .mobileMenuButton {
     display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
     width: 42px;
     height: 42px;
     padding: 10px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    background-color: rgba(28, 26, 25, 0.95);
+    background: #2A2725;
     border: 1px solid rgba(238, 211, 186, 0.25);
     border-radius: 8px;
     cursor: pointer;
@@ -659,7 +697,7 @@ html {
 }
 
 .mobileMenuButton:hover {
-    background-color: #4B262F;
+    background: #572C37;
     border-color: #EED3BA;
 }
 
@@ -667,7 +705,7 @@ html {
     display: block;
     width: 18px;
     height: 1px;
-    background-color: #EED3BA;
+    background: #EED3BA;
     transition:
         transform 0.3s ease,
         opacity 0.3s ease;
@@ -691,22 +729,20 @@ html {
 
 .mobileMenu {
     display: none;
-    position: fixed;
+    position: fixed !important;
     top: 96px;
     left: 20px;
     right: 20px;
     z-index: 90;
-
-    background-color: rgba(28, 26, 25, 0.98);
-    border: 1px solid rgba(238, 211, 186, 0.15);
-    border-radius: 16px;
     padding: 25px;
-
+    background: rgba(36, 34, 32, 0.99);
+    border: 1px solid rgba(238, 211, 186, 0.17);
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     pointer-events: none;
-
     transition:
         opacity 0.3s ease,
         transform 0.3s ease,
@@ -732,19 +768,19 @@ html {
     justify-content: space-between;
     padding: 16px 10px;
     color: #EED3BA;
-    text-decoration: none;
+    border-bottom: 1px solid rgba(238, 211, 186, 0.1);
     font-family: monospace;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-    border-bottom: 1px solid rgba(238, 211, 186, 0.08);
+    font-size: 13px;
+    letter-spacing: 1.2px;
+    text-decoration: none;
     transition:
         color 0.25s ease,
         padding-left 0.25s ease;
 }
 
 .mobileMenuLinks > a:hover {
-    color: #B65A6A;
     padding-left: 16px;
+    color: #D17B88;
 }
 
 /* =========================
@@ -754,7 +790,7 @@ html {
 .mobileProjectsDropdown {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid rgba(238, 211, 186, 0.08);
+    border-bottom: 1px solid rgba(238, 211, 186, 0.1);
 }
 
 .mobileProjectsToggle {
@@ -763,19 +799,19 @@ html {
     justify-content: space-between;
     width: 100%;
     padding: 16px 10px;
-    border: none;
-    background: transparent;
     color: #EED3BA;
+    background: transparent;
+    border: 0;
     font-family: monospace;
-    font-size: 14px;
-    letter-spacing: 1.5px;
+    font-size: 13px;
+    letter-spacing: 1.2px;
     line-height: 1.4;
     text-align: left;
     cursor: pointer;
 }
 
 .mobileProjectsToggle:hover {
-    color: #B5987D;
+    color: #D1A58C;
 }
 
 .mobileDropdownArrow {
@@ -805,7 +841,7 @@ html {
 }
 
 .mobileProjectsSubmenu.open {
-    max-height: 300px;
+    max-height: 320px;
     opacity: 1;
     visibility: visible;
 }
@@ -815,24 +851,24 @@ html {
     align-items: center;
     gap: 12px;
     padding: 13px 12px;
-    color: #B5987D;
-    text-decoration: none;
+    color: #D1B59D;
+    border-top: 1px solid rgba(238, 211, 186, 0.07);
     font-family: monospace;
-    font-size: 11px;
-    letter-spacing: 0.5px;
-    border-top: 1px solid rgba(238, 211, 186, 0.06);
+    font-size: 10px;
+    letter-spacing: 0.4px;
+    text-decoration: none;
     transition:
         background-color 0.2s ease,
         color 0.2s ease;
 }
 
 .mobileProjectLink > span:first-child {
-    color: #B65A6A;
+    color: #D17B88;
 }
 
 .mobileProjectLink:hover {
     color: #EED3BA;
-    background-color: rgba(75, 38, 47, 0.45);
+    background: rgba(87, 44, 55, 0.45);
 }
 
 .mobileProjectArrow {
@@ -846,39 +882,35 @@ html {
 }
 
 .mobileMenuLinks > a.mobileConnectButton {
-    margin-top: 10px;
-    border: 1px solid #4B262F;
-    border-radius: 50px;
-    background-color: #4B262F;
     justify-content: center;
+    margin-top: 10px;
     padding: 14px 20px;
+    background: #572C37;
+    border: 1px solid #572C37;
+    border-radius: 50px;
 }
 
 .mobileMenuLinks > a.mobileConnectButton:hover {
-    color: #4B262F;
-    background-color: #EED3BA;
-    border-color: #EED3BA;
     padding-left: 20px;
+    color: #211a18;
+    background: #EED3BA;
+    border-color: #EED3BA;
 }
 
 /* =========================
-   DROPZONE
+   DROPZONE / PROJECT LINK
 ========================= */
 
 .dropzone {
     width: 100%;
     height: 100%;
-    background-color: #1C1A19;
+    background: #242220;
 }
 
 .dropzone.dragging {
-    background-color: #ac5a3a;
+    background: #572C37;
     border: 2px dashed #EED3BA;
 }
-
-/* =========================
-   PROJECT LINK
-========================= */
 
 .projectLink {
     display: inline-flex;
@@ -887,9 +919,9 @@ html {
     width: fit-content;
     padding: 13px 20px;
     margin-top: 10px;
-    background-color: #4B262F;
     color: #EED3BA;
-    border: 1px solid #4B262F;
+    background: #572C37;
+    border: 1px solid #572C37;
     border-radius: 8px;
     font-family: monospace;
     font-size: 12px;
@@ -904,8 +936,8 @@ html {
 }
 
 .projectLink:hover {
-    background-color: #EED3BA;
-    color: #4B262F;
+    color: #211a18;
+    background: #EED3BA;
     border-color: #EED3BA;
     transform: translateY(-2px);
 }
@@ -914,315 +946,10 @@ html {
     transform: translateY(0);
 }
 
-/* =====================================================
-   VA PORTFOLIO PROJECT GROUPS
-===================================================== */
-
-.portfolioIntro {
-    max-width: 750px;
-    margin: 0 auto 60px;
-    text-align: center;
-}
-
-.portfolioGroups {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    width: 100%;
-    min-width: 0;
-}
-
-.portfolioGroup {
-    width: 100%;
-    min-width: 0;
-    scroll-margin-top: 110px;
-}
-
-.portfolioGroupHeader {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(238, 211, 186, 0.15);
-}
-
-.portfolioGroupNumber {
-    flex-shrink: 0;
-    color: #B65A6A;
-    font-family: monospace;
-    font-size: 14px;
-    letter-spacing: 2px;
-    padding-top: 5px;
-}
-
-.portfolioGroupTitle {
-    color: #EED3BA;
-    font-family: monospace;
-    font-size: 20px;
-    line-height: 1.5;
-    letter-spacing: 2px;
-    margin: 0 0 10px;
-    overflow-wrap: anywhere;
-}
-
-.portfolioGroupDescription {
-    color: rgba(238, 211, 186, 0.65);
-    font-size: 14px;
-    line-height: 1.7;
-    margin: 0;
-    max-width: 650px;
-}
-
 /* =========================
-   PROJECT GRID
+   ACCESSIBILITY
 ========================= */
 
-.portfolioGrid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-    gap: 25px;
-    width: 100%;
-    min-width: 0;
-}
-
-.portfolioCard {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    overflow: hidden;
-    background-color: rgba(28, 26, 25, 0.92);
-    border: 1px solid rgba(238, 211, 186, 0.14);
-    border-radius: 16px;
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background-color 0.3s ease;
-}
-
-.portfolioCard:hover {
-    transform: translateY(-5px);
-    border-color: rgba(182, 90, 106, 0.65);
-    background-color: rgba(35, 30, 29, 0.98);
-}
-
-/* =========================
-   CARD TOP / STATUS
-========================= */
-
-.portfolioCardTop {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 18px 20px 0;
-}
-
-.portfolioCardNumber {
-    flex-shrink: 0;
-    color: #B5987D;
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.portfolioStatus {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 75%;
-    padding: 6px 10px;
-    border: 1px solid rgba(238, 211, 186, 0.15);
-    border-radius: 30px;
-    color: #B5987D;
-    font-family: monospace;
-    font-size: 9px;
-    line-height: 1.5;
-    letter-spacing: 0.7px;
-    text-align: center;
-}
-
-/* =========================
-   PROJECT IMAGE
-========================= */
-
-.portfolioCardImage {
-    position: relative;
-    width: calc(100% - 40px);
-    height: 220px;
-    margin: 18px 20px 0;
-    overflow: hidden;
-    border-radius: 10px;
-    background-color: #151311;
-    flex-shrink: 0;
-}
-
-.portfolioCardImage > img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.4s ease;
-}
-
-.portfolioCard:hover .portfolioCardImage > img {
-    transform: scale(1.04);
-}
-
-/* =========================
-   PORTFOLIO PLACEHOLDERS
-========================= */
-
-.portfolioCardImage .portfolioPlaceholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    margin: 0;
-    padding: 20px;
-
-    box-sizing: border-box;
-    border: 1px dashed rgba(238, 211, 186, 0.2);
-    border-radius: 0;
-
-    background: linear-gradient(
-        135deg,
-        rgba(75, 38, 47, 0.35),
-        rgba(21, 19, 17, 0.95)
-    );
-
-    text-align: center;
-}
-
-.portfolioPlaceholder span {
-    color: #B65A6A;
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    line-height: 1.6;
-}
-
-.portfolioPlaceholder p {
-    color: rgba(238, 211, 186, 0.8);
-    font-family: monospace;
-    font-size: 13px;
-    letter-spacing: 1px;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-    margin: 0;
-}
-
-/* =========================
-   PROJECT CARD CONTENT
-========================= */
-
-.portfolioCardBody {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex: 1;
-    min-width: 0;
-    padding: 24px 20px;
-}
-
-.portfolioCardCategory {
-    color: #B65A6A;
-    font-family: monospace;
-    font-size: 10px;
-    line-height: 1.6;
-    letter-spacing: 1.5px;
-    margin: 0 0 12px;
-}
-
-.portfolioCardTitle {
-    color: #EED3BA;
-    font-size: 22px;
-    line-height: 1.35;
-    overflow-wrap: anywhere;
-    margin: 0 0 14px;
-}
-
-.portfolioCardDescription {
-    color: rgba(238, 211, 186, 0.7);
-    font-size: 14px;
-    line-height: 1.8;
-    overflow-wrap: anywhere;
-    margin: 0 0 22px;
-}
-
-/* =========================
-   TECHNOLOGY / SKILL TAGS
-========================= */
-
-.portfolioTags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    width: 100%;
-    margin-top: auto;
-    margin-bottom: 22px;
-}
-
-.portfolioTags span {
-    display: inline-flex;
-    align-items: center;
-    max-width: 100%;
-    padding: 7px 10px;
-    border: 1px solid rgba(238, 211, 186, 0.15);
-    border-radius: 5px;
-    background-color: rgba(21, 19, 17, 0.7);
-    color: #B5987D;
-    font-family: monospace;
-    font-size: 10px;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-}
-
-/* =========================
-   PROJECT VIEW BUTTON
-========================= */
-
-.portfolioViewButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 13px 18px;
-    margin-top: 5px;
-    border: 1px solid #4B262F;
-    border-radius: 8px;
-    background-color: #4B262F;
-    color: #EED3BA;
-    font-family: monospace;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    cursor: pointer;
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.portfolioViewButton:hover {
-    background-color: #EED3BA;
-    color: #4B262F;
-    border-color: #EED3BA;
-}
-
-/* =========================
-   KEYBOARD ACCESSIBILITY
-========================= */
-
-.portfolioViewButton:focus-visible,
 .primaryButton:focus-visible,
 .secondaryButton:focus-visible,
 .navLinks a:focus-visible,
@@ -1230,8 +957,9 @@ html {
 .navDropdownItem:focus-visible,
 .mobileMenuButton:focus-visible,
 .mobileProjectsToggle:focus-visible,
-.mobileProjectLink:focus-visible {
-    outline: 2px solid #B65A6A;
+.mobileProjectLink:focus-visible,
+.projectLink:focus-visible {
+    outline: 2px solid #D17B88;
     outline-offset: 4px;
 }
 
@@ -1240,19 +968,44 @@ html {
 ========================= */
 
 @media (max-width: 1100px) {
-    .heroName {
-        font-size: 58px;
+    .heroSection {
+        min-height: max(850px, 100svh);
+    }
+
+    .heroLeft {
+        width: 58%;
+        padding-top: 150px;
+        padding-bottom: 210px;
     }
 
     .leftContent {
+        max-width: 520px;
         margin-left: 6vw;
-        max-width: 500px;
+        margin-right: 18px;
+    }
+
+    .heroName {
+        font-size: clamp(44px, 5.2vw, 58px);
+    }
+
+    .roleText {
+        font-size: 13px;
+        letter-spacing: 1.2px;
+    }
+
+    .heroDescription {
+        font-size: 14px;
     }
 
     .terminalCard {
-        width: 380px;
+        right: 5%;
+        width: min(370px, 88%);
         min-height: 260px;
-        right: 8%;
+    }
+
+    .terminalContent {
+        padding: 20px;
+        font-size: 12px;
     }
 
     .navBar {
@@ -1267,18 +1020,18 @@ html {
 
     .navLinks > a,
     .navDropdownTrigger {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .connectButton {
-        padding: 12px 18px;
-        font-size: 11px;
+        padding: 12px 16px;
+        font-size: 10px;
     }
 
     .heroSkills {
         left: 6vw;
         right: 6vw;
-        top: 79%;
+        bottom: 28px;
     }
 }
 
@@ -1288,89 +1041,126 @@ html {
 
 @media (max-width: 850px) {
     .navBar {
+        position: fixed !important;
         top: 12px;
+        left: 50%;
         width: calc(100% - 32px);
-        height: 58px;
-        padding: 0 18px;
+        height: 60px;
+        padding: 0 16px;
+        gap: 12px;
+        transform: translateX(-50%);
         border-radius: 12px;
     }
 
     .navLinks,
-    .connectButton {
+    .navBar > .connectButton {
         display: none;
     }
 
     .mobileMenuButton {
         display: flex;
+        flex-shrink: 0;
+        margin-left: auto;
     }
 
     .mobileMenu {
         display: block;
-        top: 82px;
+        position: fixed !important;
+        top: 84px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        z-index: 99;
     }
 
     .heroSection {
-        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        min-height: max(900px, 100svh);
+        height: auto;
     }
 
     .heroLeft {
+        align-items: flex-start;
+        justify-content: flex-start;
         width: 100%;
-        min-height: 100svh;
-        transform: translateY(-30px);
+        min-height: 0;
+        padding: 155px 0 245px;
+        transform: none;
+    }
+
+    .leftContent {
+        width: auto;
+        max-width: 650px;
+        margin: 0 7vw;
     }
 
     .heroRight {
         display: none;
     }
 
-    .leftContent {
-        margin-left: 8vw;
-        margin-right: 8vw;
-        max-width: 600px;
+    .introText {
+        margin-bottom: 18px;
+        font-size: 14px;
+        line-height: 1.7;
+        letter-spacing: 2.5px;
     }
 
     .heroName {
-        font-size: 52px;
+        margin-bottom: 23px;
+        font-size: clamp(48px, 8.5vw, 66px);
+        line-height: 1.08;
+        letter-spacing: -0.8px;
+    }
+
+    .roleText {
+        margin-bottom: 20px;
+        font-size: 13px;
+        line-height: 1.9;
+        letter-spacing: 1.1px;
     }
 
     .heroDescription {
-        max-width: 450px;
+        max-width: 570px;
+        margin-bottom: 27px;
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .heroButtons {
+        gap: 12px;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        min-height: 47px;
+        padding: 13px 17px;
+        font-size: 11px;
     }
 
     .heroSkills {
-        left: 8vw;
-        right: 8vw;
-        top: auto;
-        bottom: 5%;
-        transform: none;
+        left: 7vw;
+        right: 7vw;
+        bottom: 24px;
+        padding: 15px 14px 12px;
     }
 
-    .portfolioGroups {
-        gap: 60px;
+    .heroSkillsHeader {
+        margin-bottom: 9px;
     }
 
-    .portfolioGrid {
-        gap: 18px;
+    .heroSkillsHeader p {
+        font-size: 10px;
+        letter-spacing: 1.7px;
     }
 
-    .portfolioCardImage {
-        height: 180px;
+    .heroSkills .skillsTrack {
+        gap: 10px;
     }
 
-    .portfolioCardTitle {
-        font-size: 19px;
-    }
-
-    .portfolioCardBody {
-        padding: 20px 16px;
-    }
-
-    .portfolioCardTop {
-        padding: 16px 16px 0;
-    }
-
-    .portfolioGroupTitle {
-        font-size: 17px;
+    .heroSkills .skillItem {
+        padding: 9px 12px;
+        font-size: 10px;
     }
 }
 
@@ -1379,60 +1169,16 @@ html {
 ========================= */
 
 @media (max-width: 600px) {
-    .portfolioIntro {
-        margin-bottom: 40px;
-    }
-
-    .portfolioGroups {
-        gap: 45px;
-    }
-
-    .portfolioGroupHeader {
-        gap: 12px;
-        margin-bottom: 22px;
-        padding-bottom: 16px;
-    }
-
-    .portfolioGroupTitle {
-        font-size: 15px;
-        line-height: 1.6;
-        letter-spacing: 1px;
-    }
-
-    .portfolioGroupDescription {
-        font-size: 13px;
-    }
-
-    .portfolioGrid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 22px;
-    }
-
-    .portfolioCardImage {
-        height: 210px;
-    }
-
-    .portfolioCardTitle {
-        font-size: 20px;
-    }
-
-    .portfolioCardDescription {
-        font-size: 13px;
-    }
-
-    .portfolioStatus {
-        font-size: 8px;
-    }
-}
-
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media (max-width: 500px) {
     .navBar {
+        top: 10px;
         width: calc(100% - 24px);
-        padding: 0 14px;
+        height: 58px;
+        padding: 0 12px;
+        gap: 10px;
+    }
+
+    .logoLink {
+        gap: 9px;
     }
 
     .logoMark {
@@ -1442,136 +1188,226 @@ html {
 
     .logoName {
         font-size: 10px;
-        letter-spacing: 1.5px;
+        letter-spacing: 1.4px;
     }
 
-    .heroLeft {
-        transform: translateY(-20px);
-    }
-
-    .leftContent {
-        margin-left: 7vw;
-        margin-right: 7vw;
-    }
-
-    .introText {
-        font-size: 16px;
-        letter-spacing: 2px;
-        margin-bottom: 18px;
-    }
-
-    .heroName {
-        font-size: clamp(36px, 10vw, 43px);
-        letter-spacing: 1px;
-        line-height: 1.02;
-        margin-bottom: 22px;
-    }
-
-    .roleText {
-        font-size: 13px;
-        letter-spacing: 1.2px;
-        line-height: 1.7;
-        margin-bottom: 20px;
-    }
-
-    .heroDescription {
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 28px;
-    }
-
-    .heroButtons {
-        gap: 10px;
-        flex-wrap: wrap;
-    }
-
-    .primaryButton,
-    .secondaryButton {
-        padding: 13px 18px;
-        font-size: 11px;
-    }
-
-    .heroSkills {
-        left: 7vw;
-        right: 7vw;
-        bottom: 3%;
-    }
-
-    .heroSkillsHeader p {
-        font-size: 10px;
-    }
-
-    .heroSkills .skillsTrack {
-        gap: 10px;
-    }
-
-    .heroSkills .skillItem {
-        font-size: 10px;
-        padding: 7px 11px;
-    }
-
-    .heroSkills .skillItem svg {
-        width: 14px;
-        height: 14px;
+    .mobileMenuButton {
+        width: 40px;
+        height: 40px;
     }
 
     .mobileMenu {
         top: 78px;
         left: 12px;
         right: 12px;
-        padding: 20px;
-        max-height: calc(100svh - 95px);
+        max-height: calc(100svh - 92px);
+        padding: 18px;
         overflow-y: auto;
+        border-radius: 14px;
+    }
+
+    .mobileMenuLinks {
+        gap: 3px;
     }
 
     .mobileMenuLinks > a,
     .mobileProjectsToggle {
+        padding: 15px 9px;
         font-size: 12px;
-        padding: 14px 8px;
     }
 
     .mobileProjectLink {
+        padding: 12px 9px;
         font-size: 10px;
-        padding: 12px 8px;
     }
 
-    .portfolioGroupHeader {
-        gap: 10px;
+    .heroSection {
+        min-height: max(850px, 100svh);
     }
 
-    .portfolioGroupNumber {
+    .heroLeft {
+        padding-top: 135px;
+        padding-bottom: 240px;
+    }
+
+    .leftContent {
+        width: auto;
+        max-width: none;
+        margin: 0 7vw;
+    }
+
+    .introText {
+        margin-bottom: 17px;
         font-size: 12px;
+        line-height: 1.8;
+        letter-spacing: 2px;
     }
 
-    .portfolioGroupTitle {
-        font-size: 14px;
+    .heroName {
+        margin-bottom: 22px;
+        font-size: clamp(42px, 10.5vw, 56px);
+        line-height: 1.08;
+        letter-spacing: -0.7px;
         overflow-wrap: anywhere;
     }
 
-    .portfolioCardImage {
-        height: 190px;
-        width: calc(100% - 28px);
-        margin: 16px 14px 0;
+    .roleText {
+        margin-bottom: 19px;
+        font-size: 11px;
+        line-height: 1.9;
+        letter-spacing: 0.7px;
     }
 
-    .portfolioCardTop {
-        padding: 15px 14px 0;
+    .heroDescription {
+        margin-bottom: 25px;
+        font-size: 14px;
+        line-height: 1.9;
     }
 
-    .portfolioCardBody {
-        padding: 20px 14px;
+    .heroButtons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
-    .portfolioCardTitle {
-        font-size: 18px;
+    .primaryButton,
+    .secondaryButton {
+        min-height: 45px;
+        padding: 12px 14px;
+        font-size: 10px;
+        letter-spacing: 0.2px;
     }
 
-    .portfolioCardDescription {
+    .heroSkills {
+        left: 5vw;
+        right: 5vw;
+        bottom: 18px;
+        padding: 13px 11px 10px;
+        border-radius: 11px;
+    }
+
+    .heroSkillsHeader {
+        margin-bottom: 8px;
+    }
+
+    .heroSkillsHeader p {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .heroSkills .skillsTrack {
+        gap: 8px;
+    }
+
+    .heroSkills .skillItem {
+        gap: 7px;
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    .heroSkills .skillItem svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+    .navBar {
+        width: calc(100% - 20px);
+        height: 56px;
+        padding: 0 10px;
+    }
+
+    .logoLink {
+        gap: 7px;
+    }
+
+    .logoMark {
+        width: 33px;
+        height: 33px;
+    }
+
+    .logoName {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .mobileMenuButton {
+        width: 38px;
+        height: 38px;
+    }
+
+    .mobileMenu {
+        top: 74px;
+        left: 10px;
+        right: 10px;
+        padding: 15px;
+    }
+
+    .heroSection {
+        min-height: max(820px, 100svh);
+    }
+
+    .heroLeft {
+        padding-top: 120px;
+        padding-bottom: 225px;
+    }
+
+    .leftContent {
+        margin-right: 6vw;
+        margin-left: 6vw;
+    }
+
+    .introText {
+        font-size: 11px;
+        letter-spacing: 1.6px;
+    }
+
+    .heroName {
+        margin-bottom: 19px;
+        font-size: clamp(36px, 10.5vw, 42px);
+        line-height: 1.1;
+    }
+
+    .roleText {
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    .heroDescription {
         font-size: 13px;
-        line-height: 1.75;
+        line-height: 1.85;
     }
 
-    .portfolioTags span {
+    .heroButtons {
+        gap: 9px;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        min-height: 43px;
+        padding: 11px 12px;
+        font-size: 9px;
+    }
+
+    .heroSkills {
+        left: 4vw;
+        right: 4vw;
+        bottom: 14px;
+        padding: 11px 9px 9px;
+    }
+
+    .heroSkillsHeader p {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .heroSkills .skillItem {
+        padding: 7px 9px;
         font-size: 9px;
     }
 }
@@ -1588,14 +1424,9 @@ html {
     *,
     *::before,
     *::after {
+        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-
-    .portfolioCard:hover,
-    .portfolioCard:hover .portfolioCardImage > img {
-        transform: none;
     }
 }

@@ -1,3 +1,4 @@
+
 import "../LandingPage/Homepage.css";
 import "../LandingPage/AboutSection.css";
 import "../LandingPage/ProjectsSection.css";
@@ -31,6 +32,7 @@ import imperial from "../assets/imperial.png";
 import customerSupport from "../assets/customerSupport.png";
 import aiEmail from "../assets/n8n1.png";
 import calendarManagement from "../assets/calendarManagement.png";
+
 const PROJECT_GROUPS = [
     {
         id: "development",
@@ -58,181 +60,286 @@ const PROJECT_GROUPS = [
     }
 ];
 
+const PROJECTS = [
+    {
+        number: "01",
+        group: "development",
+        category: "CLIENT PROJECT",
+        name: "IMPERIAL GRAND",
+        image: imperial,
+        status: "REAL CLIENT WORK",
+        description:
+            "Developed a full-stack website for a restaurant client, featuring a digital menu and online reservation functionality. Also supported website content updates and digital promotional materials to help maintain the business's online presence.",
+        technologies: [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT",
+            "JAVA",
+            "SPRING BOOT",
+            "POSTGRESQL"
+        ],
+        liveUrl: null,
+        githubUrl: null
+    },
+    {
+        number: "02",
+        group: "development",
+        category: "FULL-STACK APPLICATION",
+        name: "CUSTOMER SUPPORT AI",
+        image: customerSupport,
+        status: "PERSONAL PROJECT",
+        description:
+            "Built a full-stack AI customer-support application that connects an interactive frontend to a backend service. The application retrieves relevant customer, order, and delivery information and provides contextual responses, with a human-support fallback when additional assistance is needed.",
+        technologies: [
+            "REACT",
+            "JAVASCRIPT",
+            "SPRING BOOT",
+            "POSTGRESQL",
+            "GEMINI",
+            "CLAUDE"
+        ],
+        liveUrl: null,
+        githubUrl: null
+    },
+    {
+        number: "03",
+        group: "automation",
+        category: "WORKFLOW AUTOMATION",
+        name: "AI EMAIL AUTOMATION",
+        image: aiEmail,
+        status: "PERSONAL PROJECT",
+        description:
+            "Designed an n8n workflow to classify incoming emails, generate summaries, identify suggested next actions, and prepare email drafts. It can check calendar availability and support calendar-related actions while keeping email sending under human control.",
+        technologies: [
+            "N8N",
+            "OPENAI",
+            "GMAIL",
+            "GOOGLE CALENDAR"
+        ],
+        liveUrl: null,
+        githubUrl: null
+    },
+    {
+        number: "04",
+        group: "automation",
+        category: "BUSINESS ANALYTICS",
+        name: "WHATSAPP BUSINESS ANALYTICS",
+        image: null,
+        status: "PERSONAL PROJECT",
+        description:
+            "Built an n8n-powered workflow that allows business users to request sales insights through WhatsApp. It analyzes historical sales data to explore business performance, identify trends, generate forecasts, and provide reports and visual insights.",
+        technologies: [
+            "N8N",
+            "WHATSAPP",
+            "SALES ANALYTICS",
+            "AI AUTOMATION"
+        ],
+        liveUrl: null,
+        githubUrl: null
+    },
+    {
+        number: "05",
+        group: "va",
+        category: "SCHEDULING & COORDINATION",
+        name: "CALENDAR MANAGEMENT",
+        image: calendarManagement,
+        status: "PORTFOLIO DEMO",
+        description:
+            "A fictional small-business calendar demonstration showing how appointments, meetings, deadlines, and daily priorities can be organized into a clear schedule. Designed to demonstrate scheduling and administrative organization rather than claim previous client experience.",
+        technologies: [
+            "GOOGLE CALENDAR",
+            "APPOINTMENT SCHEDULING",
+            "TIME MANAGEMENT"
+        ],
+        liveUrl: null,
+        githubUrl: null
+    },
+    {
+        number: "06",
+        group: "va",
+        category: "EMAIL & INBOX ORGANIZATION",
+        name: "INBOX MANAGEMENT",
+        image: null,
+        status: "PLANNED DEMO",
+        description:
+            "A planned fictional business scenario demonstrating how emails can be categorized by priority, summarized, organized for follow-up, and prepared for professional responses.",
+        technologies: [
+            "EMAIL MANAGEMENT",
+            "EMAIL PRIORITIZATION",
+            "FOLLOW-UP TRACKING"
+        ],
+        liveUrl: null,
+        githubUrl: null
+    },
+    {
+        number: "07",
+        group: "va",
+        category: "ADMINISTRATION & SPREADSHEETS",
+        name: "ADMIN TASK TRACKER",
+        image: null,
+        status: "PLANNED DEMO",
+        description:
+            "A planned spreadsheet demonstration for organizing tasks, deadlines, priorities, progress updates, and outstanding follow-ups in one structured tracker.",
+        technologies: [
+            "GOOGLE SHEETS",
+            "DATA ORGANIZATION",
+            "TASK TRACKING"
+        ],
+        liveUrl: null,
+        githubUrl: null
+    }
+];
+
+const SKILLS = [
+    // Administrative and business support
+    { name: "ADMIN SUPPORT", icon: null },
+    { name: "EMAIL MANAGEMENT", icon: null },
+    { name: "CALENDAR SCHEDULING", icon: null },
+    { name: "DATA ENTRY", icon: null },
+    { name: "ONLINE RESEARCH", icon: null },
+    { name: "DOCUMENTATION", icon: null },
+    { name: "TASK COORDINATION", icon: null },
+    { name: "CUSTOMER SUPPORT", icon: null },
+    { name: "GOOGLE WORKSPACE", icon: null },
+    { name: "MICROSOFT OFFICE", icon: null },
+
+    // AI and automation
+    { name: "N8N", icon: siN8n },
+    { name: "OPENAI", icon: null },
+    { name: "CLAUDE", icon: siAnthropic },
+    { name: "GEMINI", icon: siGooglegemini },
+    { name: "AI WORKFLOWS", icon: null },
+    { name: "BUSINESS ANALYTICS", icon: null },
+
+    // Software development
+    { name: "SPRING BOOT", icon: siSpringboot },
+    { name: "SPRING SECURITY", icon: siSpringsecurity },
+    { name: "JAVASCRIPT", icon: siJavascript },
+    { name: "REACT", icon: siReact },
+    { name: "VITE", icon: siVite },
+    { name: "HTML", icon: siHtml5 },
+    { name: "CSS", icon: siCss },
+    { name: "POSTGRESQL", icon: siPostgresql },
+
+    // Deployment and tools
+    { name: "NETLIFY", icon: siNetlify },
+    { name: "RAILWAY", icon: siRailway }
+];
+
 function Homepage() {
     const [selectedProject, setSelectedProject] = useState(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
 
-    const projects = [
-        {
-            number: "01",
-            group: "development",
-            category: "CLIENT PROJECT",
-            name: "IMPERIAL GRAND",
-            image: imperial,
-            status: "REAL CLIENT WORK",
-            description:
-                "Developed a full-stack website for a restaurant client, featuring a digital menu and online reservation functionality. Also supported website content updates and digital promotional materials to help maintain the business's online presence.",
-            technologies: [
-                "HTML",
-                "CSS",
-                "JAVASCRIPT",
-                "JAVA",
-                "SPRING BOOT",
-                "POSTGRESQL"
-            ],
-            liveUrl: null,
-            githubUrl: null
-        },
-        {
-            number: "02",
-            group: "development",
-            category: "FULL-STACK APPLICATION",
-            name: "CUSTOMER SUPPORT AI",
-            image: customerSupport,
-            status: "PERSONAL PROJECT",
-            description:
-                "Built a full-stack AI customer-support application that connects an interactive frontend to a backend service. The application retrieves relevant customer, order, and delivery information and provides contextual responses, with a human-support fallback when additional assistance is needed.",
-            technologies: [
-                "REACT",
-                "JAVASCRIPT",
-                "SPRING BOOT",
-                "POSTGRESQL",
-                "GEMINI",
-                "CLAUDE"
-            ],
-            liveUrl: null,
-            githubUrl: null
-        },
-        {
-            number: "03",
-            group: "automation",
-            category: "WORKFLOW AUTOMATION",
-            name: "AI EMAIL AUTOMATION",
-            image: aiEmail,
-            status: "PERSONAL PROJECT",
-            description:
-                "Designed an n8n workflow to classify incoming emails, generate summaries, identify suggested next actions, and prepare email drafts. It can check calendar availability and support calendar-related actions while keeping email sending under human control.",
-            technologies: [
-                "N8N",
-                "OPENAI",
-                "GMAIL",
-                "GOOGLE CALENDAR"
-            ],
-            liveUrl: null,
-            githubUrl: null
-        },
-        {
-            number: "04",
-            group: "automation",
-            category: "BUSINESS ANALYTICS",
-            name: "WHATSAPP BUSINESS ANALYTICS",
-            image: null,
-            status: "PERSONAL PROJECT",
-            description:
-                "Built an n8n-powered workflow that allows business users to request sales insights through WhatsApp. It analyzes historical sales data to explore business performance, identify trends, generate forecasts, and provide reports and visual insights.",
-            technologies: [
-                "N8N",
-                "WHATSAPP",
-                "SALES ANALYTICS",
-                "AI AUTOMATION"
-            ],
-            liveUrl: null,
-            githubUrl: null
-        },
-        {
-            number: "05",
-            group: "va",
-            category: "SCHEDULING & COORDINATION",
-            name: "CALENDAR MANAGEMENT",
-            image: calendarManagement,
-            status: "PORTFOLIO DEMO",
-            description:
-                "A fictional small-business calendar demonstration showing how appointments, meetings, deadlines, and daily priorities can be organized into a clear schedule. Designed to demonstrate scheduling and administrative organization rather than claim previous client experience.",
-            technologies: [
-                "GOOGLE CALENDAR",
-                "APPOINTMENT SCHEDULING",
-                "TIME MANAGEMENT"
-            ],
-            liveUrl: null,
-            githubUrl: null
-        },
-        {
-            number: "06",
-            group: "va",
-            category: "EMAIL & INBOX ORGANIZATION",
-            name: "INBOX MANAGEMENT",
-            image: null,
-            status: "PLANNED DEMO",
-            description:
-                "A planned fictional business scenario demonstrating how emails can be categorized by priority, summarized, organized for follow-up, and prepared for professional responses.",
-            technologies: [
-                "EMAIL MANAGEMENT",
-                "EMAIL PRIORITIZATION",
-                "FOLLOW-UP TRACKING"
-            ],
-            liveUrl: null,
-            githubUrl: null
-        },
-        {
-            number: "07",
-            group: "va",
-            category: "ADMINISTRATION & SPREADSHEETS",
-            name: "ADMIN TASK TRACKER",
-            image: null,
-            status: "PLANNED DEMO",
-            description:
-                "A planned spreadsheet demonstration for organizing tasks, deadlines, priorities, progress updates, and outstanding follow-ups in one structured tracker.",
-            technologies: [
-                "GOOGLE SHEETS",
-                "DATA ORGANIZATION",
-                "TASK TRACKING"
-            ],
-            liveUrl: null,
-            githubUrl: null
-        }
-    ];
-
-    const skills = [
-        // ADMINISTRATIVE & BUSINESS SUPPORT
-        { name: "ADMIN SUPPORT", icon: null },
-        { name: "EMAIL MANAGEMENT", icon: null },
-        { name: "CALENDAR SCHEDULING", icon: null },
-        { name: "DATA ENTRY", icon: null },
-        { name: "ONLINE RESEARCH", icon: null },
-        { name: "DOCUMENTATION", icon: null },
-        { name: "TASK COORDINATION", icon: null },
-        { name: "CUSTOMER SUPPORT", icon: null },
-        { name: "GOOGLE WORKSPACE", icon: null },
-        { name: "MICROSOFT OFFICE", icon: null },
-
-        // AI & AUTOMATION
-        { name: "N8N", icon: siN8n },
-        { name: "OPENAI", icon: null },
-        { name: "CLAUDE", icon: siAnthropic },
-        { name: "GEMINI", icon: siGooglegemini },
-        { name: "AI WORKFLOWS", icon: null },
-        { name: "BUSINESS ANALYTICS", icon: null },
-
-        // SOFTWARE DEVELOPMENT
-        { name: "SPRING BOOT", icon: siSpringboot },
-        { name: "SPRING SECURITY", icon: siSpringsecurity },
-        { name: "JAVASCRIPT", icon: siJavascript },
-        { name: "REACT", icon: siReact },
-        { name: "VITE", icon: siVite },
-        { name: "HTML", icon: siHtml5 },
-        { name: "CSS", icon: siCss },
-        { name: "POSTGRESQL", icon: siPostgresql },
-
-        // DEPLOYMENT & TOOLS
-        { name: "NETLIFY", icon: siNetlify },
-        { name: "RAILWAY", icon: siRailway }
-    ];
-
     const closeMobileMenu = () => {
         setMobileMenuOpen(false);
         setMobileProjectsOpen(false);
     };
+
+    const renderProjectGroups = () =>
+        PROJECT_GROUPS.map((group) => {
+            const groupProjects = PROJECTS.filter(
+                (project) => project.group === group.id
+            );
+
+            return (
+                <section
+                    className="portfolioGroup"
+                    id={`group-${group.id}`}
+                    key={group.id}
+                >
+                    <div className="portfolioGroupHeader">
+                        <span className="portfolioGroupNumber">
+                            {group.number}
+                        </span>
+
+                        <div>
+                            <h3 className="portfolioGroupTitle">
+                                {group.title}
+                            </h3>
+
+                            <p className="portfolioGroupDescription">
+                                {group.description}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="portfolioGrid">
+                        {groupProjects.map((project) => (
+                            <article
+                                className="portfolioCard"
+                                key={project.number}
+                            >
+                                <div className="portfolioCardTop">
+                                    <span className="portfolioCardNumber">
+                                        {project.number}
+                                    </span>
+
+                                    <span className="portfolioStatus">
+                                        {project.status}
+                                    </span>
+                                </div>
+
+                                <div className="portfolioCardImage">
+                                    {project.image ? (
+                                        <img
+                                            src={project.image}
+                                            alt={`${project.name} project preview`}
+                                            loading="lazy"
+                                        />
+                                    ) : (
+                                        <div className="portfolioPlaceholder">
+                                            <span>
+                                                {project.status ===
+                                                "PLANNED DEMO"
+                                                    ? "COMING SOON"
+                                                    : "PROJECT OVERVIEW"}
+                                            </span>
+
+                                            <p>{project.name}</p>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="portfolioCardBody">
+                                    <p className="portfolioCardCategory">
+                                        {project.category}
+                                    </p>
+
+                                    <h4 className="portfolioCardTitle">
+                                        {project.name}
+                                    </h4>
+
+                                    <p className="portfolioCardDescription">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="portfolioTags">
+                                        {project.technologies.map(
+                                            (technology) => (
+                                                <span key={technology}>
+                                                    {technology}
+                                                </span>
+                                            )
+                                        )}
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        className="portfolioViewButton"
+                                        onClick={() =>
+                                            setSelectedProject(project)
+                                        }
+                                    >
+                                        VIEW DETAILS <span>↗</span>
+                                    </button>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </section>
+            );
+        });
 
     return (
         <div className="homePage">
@@ -312,7 +419,9 @@ function Homepage() {
 
                 <button
                     type="button"
-                    className={`mobileMenuButton ${mobileMenuOpen ? "open" : ""}`}
+                    className={`mobileMenuButton ${
+                        mobileMenuOpen ? "open" : ""
+                    }`}
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     aria-label="Toggle navigation menu"
                     aria-expanded={mobileMenuOpen}
@@ -485,7 +594,7 @@ function Homepage() {
 
                     <div className="skillsMarquee">
                         <div className="skillsTrack">
-                            {[...skills, ...skills].map((skill, index) => (
+                            {[...SKILLS, ...SKILLS].map((skill, index) => (
                                 <div
                                     className="skillItem"
                                     key={`${skill.name}-${index}`}
@@ -518,11 +627,11 @@ function Homepage() {
             </section>
 
             {/* ABOUT */}
-            <section className="aboutSection" id="about">
+            <section className="aboutSection">
                 <div className="aboutLeft">
-                    <p className="aboutLabel">ABOUT ME</p>
+                    <p className="aboutLabel" id="about">ABOUT ME</p>
 
-                    <h2 className="aboutTitle">
+                    <h2 className="aboutTitle" >
                         Technology,
                         <br />
                         organization &
@@ -530,13 +639,13 @@ function Homepage() {
                         problem-solving.
                     </h2>
 
-                    <p className="aboutText">
-                        I'm Mel Rich Nicholas, a Computer Science graduate based
-                        in Davao City, Philippines. I completed my BSc (Hons)
-                        in Computer Science from the University of East London
-                        through LSBF Singapore, following my earlier studies
-                        in Information Technology at Kaplan Singapore. My
-                        background combines software development, digital
+                    <p className="aboutText" >
+                        I'm Mel Rich Nicholas, a Computer Science graduate
+                        based in Davao City, Philippines. I completed my BSc
+                        (Hons) in Computer Science from the University of East
+                        London through LSBF Singapore, following my earlier
+                        studies in Information Technology at Kaplan Singapore.
+                        My background combines software development, digital
                         business support, and AI-assisted workflow automation.
                     </p>
 
@@ -550,15 +659,15 @@ function Homepage() {
                     </p>
 
                     <p className="aboutText">
-                        I have also built projects involving AI-powered customer
-                        support, automated email workflows, and WhatsApp-based
-                        business analytics using n8n. Alongside my technical
-                        work, my skills include administrative support,
-                        information management, documentation, online research,
-                        customer communication, and task coordination. I bring
-                        a combination of technical knowledge, attention to
-                        detail, and a practical approach to solving problems
-                        and supporting business operations.
+                        I have also built projects involving AI-powered
+                        customer support, automated email workflows, and
+                        WhatsApp-based business analytics using n8n. Alongside
+                        my technical work, my skills include administrative
+                        support, information management, documentation, online
+                        research, customer communication, and task
+                        coordination. I bring technical knowledge, attention
+                        to detail, and a practical approach to supporting
+                        business operations.
                     </p>
                 </div>
 
@@ -622,7 +731,6 @@ function Homepage() {
             </section>
 
             {/* SKILLS */}
-            {/* SkillsSection.jsx already contains id="skills". */}
             <SkillsSection />
 
             {/* PROJECTS */}
@@ -638,112 +746,7 @@ function Homepage() {
                 </div>
 
                 <div className="portfolioGroups">
-                    {PROJECT_GROUPS.map((group) => {
-                        const groupProjects = projects.filter(
-                            (project) => project.group === group.id
-                        );
-
-                        return (
-                            <section
-                                className="portfolioGroup"
-                                id={`group-${group.id}`}
-                                key={group.id}
-                            >
-                                <div className="portfolioGroupHeader">
-                                    <span className="portfolioGroupNumber">
-                                        {group.number}
-                                    </span>
-
-                                    <div>
-                                        <h3 className="portfolioGroupTitle">
-                                            {group.title}
-                                        </h3>
-
-                                        <p className="portfolioGroupDescription">
-                                            {group.description}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="portfolioGrid">
-                                    {groupProjects.map((project) => (
-                                        <article
-                                            className="portfolioCard"
-                                            key={project.number}
-                                        >
-                                            <div className="portfolioCardTop">
-                                                <span className="portfolioCardNumber">
-                                                    {project.number}
-                                                </span>
-
-                                                <span className="portfolioStatus">
-                                                    {project.status}
-                                                </span>
-                                            </div>
-
-                                            <div className="portfolioCardImage">
-                                                {project.image ? (
-                                                    <img
-                                                        src={project.image}
-                                                        alt={project.name}
-                                                        loading="lazy"
-                                                    />
-                                                ) : (
-                                                    <div className="portfolioPlaceholder">
-                                                        <span>
-                                                            {project.status ===
-                                                            "PLANNED DEMO"
-                                                                ? "COMING SOON"
-                                                                : project.status ===
-                                                                  "PORTFOLIO DEMO"
-                                                                ? "PORTFOLIO SAMPLE"
-                                                                : "PROJECT OVERVIEW"}
-                                                        </span>
-
-                                                        <p>{project.name}</p>
-                                                    </div>
-                                                )}
-                                            </div>
-
-                                            <div className="portfolioCardBody">
-                                                <p className="portfolioCardCategory">
-                                                    {project.category}
-                                                </p>
-
-                                                <h4 className="portfolioCardTitle">
-                                                    {project.name}
-                                                </h4>
-
-                                                <p className="portfolioCardDescription">
-                                                    {project.description}
-                                                </p>
-
-                                                <div className="portfolioTags">
-                                                    {project.technologies.map(
-                                                        (technology) => (
-                                                            <span key={technology}>
-                                                                {technology}
-                                                            </span>
-                                                        )
-                                                    )}
-                                                </div>
-
-                                                <button
-                                                    type="button"
-                                                    className="portfolioViewButton"
-                                                    onClick={() =>
-                                                        setSelectedProject(project)
-                                                    }
-                                                >
-                                                    VIEW DETAILS <span>↗</span>
-                                                </button>
-                                            </div>
-                                        </article>
-                                    ))}
-                                </div>
-                            </section>
-                        );
-                    })}
+                    {renderProjectGroups()}
                 </div>
             </section>
 
@@ -758,9 +761,10 @@ function Homepage() {
                 )}
 
             {/* CONTACT */}
-            <div id="contact">
+            <div>
                 <ContactSection />
             </div>
+            <div id="contact"></div>
         </div>
     );
 }
