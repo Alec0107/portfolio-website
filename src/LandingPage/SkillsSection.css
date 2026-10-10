@@ -1,22 +1,19 @@
+
 /* =========================
    SKILLS SECTION
 ========================= */
 
 .skillsSection {
     position: relative;
-
+    isolation: isolate;
     width: 100%;
-    min-height: 100vh;
-
-    padding: 150px 8%;
-
+    min-height: auto;
+    padding: 120px 6%;
     box-sizing: border-box;
-
-    background-color: #151311;
-
+    background: #151311;
+    color: #EED3BA;
     z-index: 2;
 }
-
 
 /* =========================
    HEADER
@@ -24,58 +21,39 @@
 
 .skillsHeader {
     display: flex;
-
     justify-content: space-between;
     align-items: flex-end;
+    gap: 50px;
 
-    max-width: 1200px;
-
-    margin: 0 auto 100px;
-
-    gap: 60px;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 65px;
 }
 
-
 .skillsLabel {
-    margin: 0 0 20px;
-
+    margin: 0 0 18px;
     color: #B65A6A;
-
     font-family: monospace;
-
-    font-size: 12px;
-
+    font-size: 11px;
     letter-spacing: 2px;
 }
 
-
 .skillsTitle {
     margin: 0;
-
     color: #EED3BA;
-
-    font-size: clamp(52px, 7vw, 90px);
-
+    font-size: clamp(46px, 6vw, 76px);
     font-weight: 500;
-
-    line-height: 0.92;
-
-    letter-spacing: -3px;
+    line-height: 1;
+    letter-spacing: -2.5px;
 }
-
 
 .skillsIntro {
-    max-width: 400px;
-
+    max-width: 390px;
     margin: 0;
-
-    color: rgba(238, 211, 186, 0.55);
-
-    font-size: 15px;
-
-    line-height: 1.8;
+    color: rgba(238, 211, 186, 0.62);
+    font-size: 14px;
+    line-height: 1.85;
 }
-
 
 /* =========================
    SKILLS GRID
@@ -83,44 +61,35 @@
 
 .skillsGrid {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    grid-template-columns: repeat(2, 1fr);
-
-    max-width: 1200px;
-
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
 
-    border-top: 1px solid rgba(238, 211, 186, 0.12);
-
-    border-left: 1px solid rgba(238, 211, 186, 0.12);
+    border-top: 1px solid rgba(238, 211, 186, 0.13);
+    border-left: 1px solid rgba(238, 211, 186, 0.13);
 }
-
 
 /* =========================
    SKILL GROUP
 ========================= */
 
 .skillGroup {
-    min-height: 330px;
-
-    padding: 35px 40px;
-
+    min-width: 0;
+    min-height: 285px;
+    padding: 30px 32px;
     box-sizing: border-box;
 
-    border-right: 1px solid rgba(238, 211, 186, 0.12);
+    border-right: 1px solid rgba(238, 211, 186, 0.13);
+    border-bottom: 1px solid rgba(238, 211, 186, 0.13);
 
-    border-bottom: 1px solid rgba(238, 211, 186, 0.12);
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
+    transition: background-color 0.25s ease;
 }
-
 
 .skillGroup:hover {
-    background-color: rgba(75, 38, 47, 0.16);
+    background-color: rgba(75, 38, 47, 0.14);
 }
-
 
 /* =========================
    GROUP HEADER
@@ -128,36 +97,27 @@
 
 .skillGroupTop {
     display: flex;
-
     align-items: center;
-
-    gap: 18px;
-
-    margin-bottom: 35px;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
-
 .skillGroupNumber {
+    flex-shrink: 0;
     color: #B65A6A;
-
     font-family: monospace;
-
-    font-size: 11px;
-
+    font-size: 10px;
     letter-spacing: 1px;
 }
 
-
 .skillGroupTitle {
+    margin: 0;
     color: #B5987D;
-
     font-family: monospace;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
 }
-
 
 /* =========================
    SKILL LIST
@@ -165,10 +125,8 @@
 
 .skillList {
     display: flex;
-
     flex-direction: column;
 }
-
 
 /* =========================
    SKILL ROW
@@ -176,30 +134,27 @@
 
 .skillRow {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
+    gap: 14px;
 
-    padding: 15px 0;
+    min-width: 0;
+    padding: 14px 0;
 
     border-bottom: 1px solid rgba(238, 211, 186, 0.08);
 
     transition:
-        padding-left 0.25s ease,
-        color 0.25s ease;
+        padding-left 0.2s ease,
+        color 0.2s ease;
 }
-
 
 .skillRow:last-child {
     border-bottom: none;
 }
 
-
 .skillRow:hover {
-    padding-left: 8px;
+    padding-left: 5px;
 }
-
 
 /* =========================
    SKILL NAME
@@ -207,31 +162,25 @@
 
 .skillName {
     display: flex;
-
     align-items: center;
+    gap: 12px;
 
-    gap: 13px;
-
+    min-width: 0;
     color: #EED3BA;
 
     font-family: monospace;
-
-    font-size: 13px;
-
-    letter-spacing: 1px;
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    overflow-wrap: anywhere;
 }
-
 
 .skillName svg {
     width: 17px;
-
     height: 17px;
-
-    fill: #B5987D;
-
     flex-shrink: 0;
+    fill: #B5987D;
 }
-
 
 /* =========================
    ARROW
@@ -241,18 +190,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 
-    color: #4B262F;
+    color: #B5987D;
 
     transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .skillArrow svg {
-    width: 17px;
-    height: 17px;
-
+    width: 16px;
+    height: 16px;
     fill: none;
     stroke: currentColor;
     stroke-width: 1.5;
@@ -262,77 +211,130 @@
 
 .skillRow:hover .skillArrow {
     color: #B65A6A;
-    transform: translate(3px, -3px);
+    transform: translate(2px, -2px);
 }
 
-
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
-@media (max-width: 800px) {
-
+@media (max-width: 900px) {
     .skillsSection {
-        padding: 100px 7%;
+        padding: 100px 6%;
     }
 
+    .skillsHeader {
+        align-items: flex-start;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .skillsTitle {
+        font-size: clamp(44px, 7vw, 64px);
+    }
+
+    .skillsIntro {
+        max-width: 340px;
+    }
+
+    .skillGroup {
+        padding: 26px 24px;
+        min-height: 270px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+    .skillsSection {
+        padding: 85px 7%;
+    }
 
     .skillsHeader {
         flex-direction: column;
-
         align-items: flex-start;
-
-        margin-bottom: 60px;
-
-        gap: 30px;
+        gap: 22px;
+        margin-bottom: 38px;
     }
-
-
-    .skillsIntro {
-        max-width: 500px;
-    }
-
-
-    .skillsGrid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .skillGroup {
-        min-height: auto;
-
-        padding: 30px;
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .skillsSection {
-        padding: 90px 6%;
-    }
-
 
     .skillsTitle {
-        font-size: 50px;
-
-        letter-spacing: -2px;
+        font-size: clamp(42px, 10vw, 58px);
+        letter-spacing: -1.8px;
     }
 
-
     .skillsIntro {
+        max-width: 520px;
         font-size: 14px;
     }
 
-
-    .skillGroup {
-        padding: 25px;
+    .skillsGrid {
+        grid-template-columns: minmax(0, 1fr);
     }
 
+    .skillGroup {
+        min-height: auto;
+        padding: 26px 24px;
+    }
+
+    .skillGroupTop {
+        margin-bottom: 18px;
+    }
+
+    .skillRow {
+        padding: 13px 0;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+    .skillsSection {
+        padding: 75px 6%;
+    }
+
+    .skillsTitle {
+        font-size: 42px;
+    }
+
+    .skillsIntro {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .skillGroup {
+        padding: 22px 18px;
+    }
+
+    .skillGroupTitle {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
 
     .skillName {
         font-size: 11px;
     }
+}
 
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .skillGroup,
+    .skillRow,
+    .skillArrow {
+        transition: none;
+    }
+
+    .skillRow:hover {
+        padding-left: 0;
+    }
+
+    .skillRow:hover .skillArrow {
+        transform: none;
+    }
 }

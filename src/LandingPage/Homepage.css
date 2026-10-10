@@ -1,40 +1,39 @@
+
 /* =========================
-   SMOOTH SCROLLING
+   SMOOTH SCROLLING / GLOBAL
 ========================= */
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
-
-/* =========================
-   WHOLE LANDING PAGE
-========================= */
+* {
+    box-sizing: border-box;
+}
 
 .homePage {
     position: relative;
-
+    isolation: isolate;
     width: 100%;
     min-height: 100vh;
-
     background: transparent;
-
-    overflow: hidden;
+    overflow-x: clip;
+    color: #EED3BA;
 }
 
-
 /* =========================
-   DARK OVERLAY
-   Keeps text readable over particles
+   HERO BACKGROUND OVERLAY
 ========================= */
 
 .homePage::before {
+    content: none;
+}
+
+.heroSection::before {
     content: "";
-
     position: absolute;
-
     inset: 0;
-
     background: linear-gradient(
         90deg,
         rgba(21, 19, 17, 0.92) 0%,
@@ -42,12 +41,27 @@ html {
         rgba(21, 19, 17, 0.35) 70%,
         rgba(21, 19, 17, 0.1) 100%
     );
-
-    z-index: 1;
-
+    z-index: 0;
     pointer-events: none;
 }
 
+.homePage > nav,
+.homePage > .mobileMenu,
+.homePage > section,
+.homePage > div:not(.mobileMenu) {
+    position: relative;
+}
+
+.homePage > .navBar,
+.homePage > .mobileMenu {
+    position: fixed;
+}
+
+.homePage > .heroSection,
+.homePage > .aboutSection,
+.homePage > .projectsSection {
+    z-index: 2;
+}
 
 /* =========================
    HERO SECTION
@@ -55,328 +69,187 @@ html {
 
 .heroSection {
     position: relative;
-
     width: 100%;
     min-height: 100vh;
-
     overflow: hidden;
+    z-index: 2;
 }
-
-
-/* =========================
-   LEFT HERO SIDE
-========================= */
 
 .heroLeft {
     width: 50%;
-    height: 100vh;
-
+    min-height: 100vh;
     display: flex;
-
     align-items: center;
-
     position: relative;
-
     z-index: 2;
-
     background: transparent;
-
     pointer-events: none;
-
     transform: translateY(-40px);
 }
 
-
-/* =========================
-   LEFT CONTENT
-========================= */
-
 .leftContent {
     margin-left: 10vw;
-
     max-width: 600px;
-
     position: relative;
-
     z-index: 5;
-}
-
-
-/* =========================
-   INTRO
-========================= */
-
-.introText {
-    color: #B5987D;
-
-    font-family: monospace;
-
-    font-size: 20px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 25px;
-}
-
-
-/* =========================
-   NAME
-========================= */
-
-.heroName {
-    color: #EED3BA;
-
-    font-size: 72px;
-
-    line-height: 0.95;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 28px;
-}
-
-
-/* =========================
-   ROLE
-========================= */
-
-.roleText {
-    color: #B5987D;
-
-    font-family: monospace;
-
-    font-size: 20px;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 25px;
-}
-
-
-/* =========================
-   DESCRIPTION
-========================= */
-
-.heroDescription {
-    color: rgba(238, 211, 186, 0.75);
-
-    font-size: 18px;
-
-    line-height: 1.7;
-
-    max-width: 520px;
-
-    margin-bottom: 35px;
-}
-
-
-/* =========================
-   HERO BUTTONS
-========================= */
-
-.heroButtons {
-    display: flex;
-
-    gap: 20px;
-
     pointer-events: auto;
 }
 
+.introText {
+    color: #B5987D;
+    font-family: monospace;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.heroName {
+    color: #EED3BA;
+    font-size: 72px;
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin: 0 0 28px;
+    overflow-wrap: anywhere;
+}
+
+.roleText {
+    color: #B5987D;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 1.6;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.heroDescription {
+    color: rgba(238, 211, 186, 0.75);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 35px;
+}
+
+.heroButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    pointer-events: auto;
+}
 
 .primaryButton,
 .secondaryButton {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
     text-decoration: none;
+    transition: 0.3s ease;
 }
-
 
 .primaryButton {
     background-color: #4B262F;
-
     color: #EED3BA;
-
-    border: none;
-
+    border: 1px solid #4B262F;
     border-radius: 12px;
-
     padding: 16px 28px;
-
     font-family: monospace;
-
     font-size: 14px;
-
     cursor: pointer;
-
-    transition: 0.3s ease;
 }
-
 
 .primaryButton:hover {
     background-color: #EED3BA;
-
     color: #4B262F;
+    border-color: #EED3BA;
 }
-
 
 .secondaryButton {
     background-color: transparent;
-
     color: #EED3BA;
-
     border: 1px solid #EED3BA;
-
     border-radius: 12px;
-
     padding: 16px 28px;
-
     font-family: monospace;
-
     font-size: 14px;
-
     cursor: pointer;
-
-    transition: 0.3s ease;
 }
-
 
 .secondaryButton:hover {
     background-color: #EED3BA;
-
     color: #151311;
 }
 
-
-/* =========================
-   RIGHT HERO SIDE
-========================= */
-
 .heroRight {
     position: absolute;
-
     top: 0;
     right: 0;
-
     width: 50%;
     height: 100%;
-
     z-index: 2;
-
     background: transparent;
-
     pointer-events: none;
 }
 
-
-/* =========================
-   TERMINAL CARD
-========================= */
-
 .terminalCard {
     position: absolute;
-
-    width: 430px;
-    height: 285px;
-
+    width: min(430px, 85%);
+    min-height: 285px;
     top: 50%;
     right: 22%;
-
     transform: translateY(-50%);
-
     background-color: #1C1A19;
-
     border: 1px solid #4B262F;
-
     border-radius: 20px;
-
     display: flex;
-
     flex-direction: column;
-
     overflow: hidden;
-
     z-index: 5;
 }
 
-
-/* =========================
-   TERMINAL HEADER
-========================= */
-
 .terminalHeader {
-    height: 15%;
-
+    min-height: 42px;
     width: 100%;
-
     padding: 10px;
-
     border-bottom: 1px solid #3C1821;
-
     background-color: #201F1E;
-
     display: flex;
-
     align-items: center;
-
     gap: 5px;
 }
 
-
 .terminalHeader span {
     width: 8px;
-
     height: 8px;
-
     border-radius: 50%;
-
     background-color: #B5987D;
 }
-
 
 .terminalHeader span:nth-child(1) {
     margin-left: 10px;
 }
 
-
-/* =========================
-   TERMINAL CONTENT
-========================= */
-
 .terminalContent {
-    height: 85%;
-
+    flex: 1;
     width: 100%;
-
     padding: 25px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     color: #B5987D;
-
     font-family: monospace;
-
     font-size: 15px;
-
     line-height: 1.8;
-
     letter-spacing: 0.5px;
-
     background-color: #1C1A19;
+    overflow-wrap: anywhere;
 }
 
+.terminalContent p {
+    margin: 0;
+}
 
 .codeIndent {
     padding-left: 30px;
 }
-
 
 /* =========================
    HERO TECH STACK
@@ -384,125 +257,67 @@ html {
 
 .heroSkills {
     position: absolute;
-
     left: 8vw;
     right: 8vw;
-
-    top: 72%;
-
+    top: 78%;
     transform: translateY(-50%);
-
     z-index: 5;
-
     overflow: hidden;
 }
-
-
-/* =========================
-   TECH STACK HEADER
-========================= */
 
 .heroSkillsHeader {
     margin-bottom: 12px;
 }
 
-
 .heroSkillsHeader p {
     color: #B65A6A;
-
     font-family: monospace;
-
     font-size: 12px;
-
     letter-spacing: 2px;
-
     margin: 0;
 }
 
-
-/* =========================
-   MARQUEE
-========================= */
-
 .heroSkills .skillsMarquee {
     width: 100%;
-
     overflow: hidden;
-
     padding: 5px 0;
 }
 
-
-/* =========================
-   MOVING TRACK
-========================= */
-
 .heroSkills .skillsTrack {
     display: flex;
-
     width: max-content;
-
     align-items: center;
-
     gap: 14px;
-
     animation: skillsScroll 25s linear infinite;
 }
 
-
-/* =========================
-   SKILL ITEMS
-========================= */
-
 .heroSkills .skillItem {
     display: flex;
-
     align-items: center;
-
     gap: 9px;
-
     color: #EED3BA;
-
     font-family: monospace;
-
     font-size: 12px;
-
     letter-spacing: 1px;
-
     white-space: nowrap;
-
     padding: 8px 14px;
-
     border: 1px solid rgba(238, 211, 186, 0.18);
-
     border-radius: 50px;
-
-    background-color: rgba(28, 26, 25, 0.35);
+    background-color: rgba(28, 26, 25, 0.8);
 }
-
 
 .heroSkills .skillItem svg {
     width: 16px;
-
     height: 16px;
-
     fill: #B5987D;
-
     flex-shrink: 0;
 }
-
 
 .heroSkills:hover .skillsTrack {
     animation-play-state: paused;
 }
 
-
-/* =========================
-   MARQUEE ANIMATION
-========================= */
-
 @keyframes skillsScroll {
-
     from {
         transform: translateX(0);
     }
@@ -510,9 +325,7 @@ html {
     to {
         transform: translateX(-50%);
     }
-
 }
-
 
 /* =========================
    NAVIGATION BAR
@@ -520,263 +333,307 @@ html {
 
 .navBar {
     position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    top: 20px;
-    left: 0;
-
-    width: 100%;
-    height: 60px;
-
-    padding: 0 60px;
-
-    box-sizing: border-box;
+    width: calc(100% - 64px);
+    max-width: 1600px;
+    height: 68px;
+    padding: 0 28px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
+    gap: 24px;
+
+    background: rgba(21, 19, 17, 0.92);
+    border: 1px solid rgba(238, 211, 186, 0.15);
+    border-radius: 14px;
+
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 
     z-index: 100;
-
     pointer-events: auto;
 }
 
-
-/* =========================
-   MN LOGO
-========================= */
-
 .logo {
     position: relative;
+    flex-shrink: 0;
 }
-
 
 .logoLink {
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     text-decoration: none;
-
     color: #EED3BA;
 }
 
-
-/* =========================
-   LOGO MARK
-========================= */
-
 .logoMark {
     position: relative;
-
     width: 38px;
     height: 38px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     border: 1px solid rgba(238, 211, 186, 0.35);
-
-    background-color: rgba(28, 26, 25, 0.65);
-
+    background-color: rgba(28, 26, 25, 0.85);
     overflow: hidden;
-
     transition:
         border-color 0.3s ease,
         background-color 0.3s ease,
         transform 0.3s ease;
 }
 
-
-/* =========================
-   LOGO ACCENTS
-========================= */
-
-.logoMark::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 8px;
-    height: 1px;
-
-    background-color: #B65A6A;
-}
-
-
+.logoMark::before,
 .logoMark::after {
     content: "";
-
     position: absolute;
-
-    bottom: 0;
-    right: 0;
-
     width: 8px;
     height: 1px;
-
     background-color: #B65A6A;
 }
 
+.logoMark::before {
+    top: 0;
+    left: 0;
+}
 
-/* =========================
-   M + N
-========================= */
+.logoMark::after {
+    bottom: 0;
+    right: 0;
+}
 
 .logoM,
 .logoN {
     position: absolute;
-
     font-family: Arial, sans-serif;
-
     font-size: 17px;
-
     font-weight: 700;
-
     line-height: 1;
-
     color: #EED3BA;
 }
-
 
 .logoM {
     transform: translateX(-4px);
 }
 
-
 .logoN {
     transform: translateX(4px);
-
     color: #B5987D;
 }
-
-
-/* =========================
-   LOGO NAME
-========================= */
 
 .logoName {
     color: #B5987D;
-
     font-family: monospace;
-
     font-size: 11px;
-
     font-weight: 500;
-
     letter-spacing: 2px;
-
     transition: color 0.3s ease;
 }
 
-
-/* =========================
-   LOGO HOVER
-========================= */
-
 .logoLink:hover .logoMark {
     border-color: #EED3BA;
-
     background-color: #4B262F;
-
     transform: translateY(-1px);
 }
-
 
 .logoLink:hover .logoM,
 .logoLink:hover .logoN {
     color: #EED3BA;
 }
 
-
 .logoLink:hover .logoName {
     color: #EED3BA;
 }
 
-
 /* =========================
-   NAV LINKS
+   DESKTOP NAV LINKS
 ========================= */
 
 .navLinks {
     display: flex;
-
     align-items: center;
-
-    gap: 50px;
+    gap: 30px;
+    height: 100%;
 }
 
-
-.navLinks a {
+.navLinks > a,
+.navDropdownTrigger {
     color: #EED3BA;
-
     text-decoration: none;
-
     font-family: monospace;
-
-    font-size: 16px;
-
-    letter-spacing: 1.5px;
-
-    transition: 0.2s ease;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
 }
 
-
-.navLinks a:hover {
+.navLinks > a:hover,
+.navDropdownTrigger:hover {
     color: #B5987D;
 }
 
+/* =========================
+   DESKTOP PROJECTS DROPDOWN
+========================= */
+
+.navDropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.navDropdownTrigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 0;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Align the arrow with the Projects text */
+.dropdownArrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 12px;
+    height: 16px;
+
+    font-size: 16px;
+    line-height: 1;
+
+    position: relative;
+    top: 0;
+
+    transform: rotate(0deg);
+    transition: transform 0.25s ease;
+}
+
+.navDropdown:hover .dropdownArrow,
+.navDropdown:focus-within .dropdownArrow {
+    transform: rotate(180deg);
+}
+
+.navDropdownMenu {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 50%;
+    width: 270px;
+    padding: 10px;
+
+    background-color: rgba(28, 26, 25, 0.98);
+    border: 1px solid rgba(238, 211, 186, 0.16);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 8px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+
+    z-index: 120;
+}
+
+.navDropdown:hover .navDropdownMenu,
+.navDropdown:focus-within .navDropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.navDropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 12px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: #EED3BA;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.navDropdownItem:hover {
+    background-color: rgba(75, 38, 47, 0.7);
+    color: #EED3BA;
+}
+
+.dropdownNumber {
+    flex-shrink: 0;
+    color: #B65A6A;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.dropdownItemText {
+    flex: 1;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.dropdownItemArrow {
+    color: #B5987D;
+    font-size: 14px;
+}
+
+/* =========================
+   CV LINK
+========================= */
+
+.cvLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
 
 /* =========================
    CONNECT BUTTON
 ========================= */
 
-.connectButton {
+.connectButton,
+.mobileConnectButton {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
     text-decoration: none;
-
     padding: 14px 25px;
-
     background-color: #4B262F;
-
     color: #EED3BA;
-
-    border: none;
-
+    border: 1px solid #4B262F;
     border-radius: 50px;
-
     font-family: monospace;
-
-    font-size: 14px;
-
+    font-size: 13px;
     letter-spacing: 1px;
-
     cursor: pointer;
-
     transition: 0.3s ease;
+    white-space: nowrap;
 }
-
 
 .connectButton:hover {
     background-color: #EED3BA;
-
     color: #4B262F;
+    border-color: #EED3BA;
 }
-
 
 /* =========================
    MOBILE MENU BUTTON
@@ -784,75 +641,49 @@ html {
 
 .mobileMenuButton {
     display: none;
-
     width: 42px;
     height: 42px;
-
     padding: 10px;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     gap: 5px;
-
-    background-color: rgba(28, 26, 25, 0.85);
-
+    background-color: rgba(28, 26, 25, 0.95);
     border: 1px solid rgba(238, 211, 186, 0.25);
-
     border-radius: 8px;
-
     cursor: pointer;
-
     z-index: 110;
-
     transition:
         background-color 0.3s ease,
         border-color 0.3s ease;
 }
 
-
 .mobileMenuButton:hover {
     background-color: #4B262F;
-
     border-color: #EED3BA;
 }
 
-
 .mobileMenuButton span {
     display: block;
-
     width: 18px;
     height: 1px;
-
     background-color: #EED3BA;
-
     transition:
         transform 0.3s ease,
         opacity 0.3s ease;
 }
 
-
-/* =========================
-   MOBILE MENU BUTTON ANIMATION
-========================= */
-
 .mobileMenuButton.open span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
-
 
 .mobileMenuButton.open span:nth-child(2) {
     opacity: 0;
 }
 
-
 .mobileMenuButton.open span:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
 }
-
 
 /* =========================
    MOBILE MENU
@@ -860,112 +691,175 @@ html {
 
 .mobileMenu {
     display: none;
-
     position: fixed;
-
-    top: 90px;
+    top: 96px;
     left: 20px;
     right: 20px;
-
     z-index: 90;
 
-    background-color: rgba(28, 26, 25, 0.97);
-
+    background-color: rgba(28, 26, 25, 0.98);
     border: 1px solid rgba(238, 211, 186, 0.15);
-
     border-radius: 16px;
-
     padding: 25px;
 
-    box-sizing: border-box;
-
     opacity: 0;
-
+    visibility: hidden;
     transform: translateY(-10px);
-
     pointer-events: none;
 
     transition:
         opacity 0.3s ease,
-        transform 0.3s ease;
+        transform 0.3s ease,
+        visibility 0.3s ease;
 }
-
 
 .mobileMenu.open {
     opacity: 1;
-
+    visibility: visible;
     transform: translateY(0);
-
     pointer-events: auto;
 }
 
-
 .mobileMenuLinks {
     display: flex;
-
     flex-direction: column;
-
     gap: 5px;
 }
 
-
-.mobileMenuLinks a {
+.mobileMenuLinks > a {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     padding: 16px 10px;
-
     color: #EED3BA;
-
     text-decoration: none;
-
     font-family: monospace;
-
     font-size: 14px;
-
     letter-spacing: 1.5px;
-
     border-bottom: 1px solid rgba(238, 211, 186, 0.08);
-
     transition:
         color 0.25s ease,
         padding-left 0.25s ease;
 }
 
-
-.mobileMenuLinks a:hover {
+.mobileMenuLinks > a:hover {
     color: #B65A6A;
-
     padding-left: 16px;
 }
 
+/* =========================
+   MOBILE PROJECTS SUBMENU
+========================= */
 
-.mobileMenuLinks a:last-child {
-    margin-top: 15px;
+.mobileProjectsDropdown {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(238, 211, 186, 0.08);
+}
 
-    border: 1px solid #4B262F;
+.mobileProjectsToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 10px;
+    border: none;
+    background: transparent;
+    color: #EED3BA;
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+    text-align: left;
+    cursor: pointer;
+}
 
-    border-radius: 50px;
+.mobileProjectsToggle:hover {
+    color: #B5987D;
+}
 
-    background-color: #4B262F;
-
+.mobileDropdownArrow {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
 
+.mobileDropdownArrow.open {
+    transform: rotate(180deg);
+}
+
+.mobileProjectsSubmenu {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        max-height 0.3s ease,
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.mobileProjectsSubmenu.open {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobileProjectLink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 12px;
+    color: #B5987D;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(238, 211, 186, 0.06);
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.mobileProjectLink > span:first-child {
+    color: #B65A6A;
+}
+
+.mobileProjectLink:hover {
+    color: #EED3BA;
+    background-color: rgba(75, 38, 47, 0.45);
+}
+
+.mobileProjectArrow {
+    margin-left: auto;
+}
+
+.mobileMenuLinks > a.mobileCVLink {
+    margin-top: 12px;
+    border: 1px solid rgba(238, 211, 186, 0.2);
+    border-radius: 8px;
+}
+
+.mobileMenuLinks > a.mobileConnectButton {
+    margin-top: 10px;
+    border: 1px solid #4B262F;
+    border-radius: 50px;
+    background-color: #4B262F;
+    justify-content: center;
     padding: 14px 20px;
 }
 
-
-.mobileMenuLinks a:last-child:hover {
+.mobileMenuLinks > a.mobileConnectButton:hover {
     color: #4B262F;
-
     background-color: #EED3BA;
-
+    border-color: #EED3BA;
     padding-left: 20px;
 }
-
 
 /* =========================
    DROPZONE
@@ -974,17 +868,13 @@ html {
 .dropzone {
     width: 100%;
     height: 100%;
-
     background-color: #1C1A19;
 }
 
-
 .dropzone.dragging {
     background-color: #ac5a3a;
-
     border: 2px dashed #EED3BA;
 }
-
 
 /* =========================
    PROJECT LINK
@@ -992,35 +882,20 @@ html {
 
 .projectLink {
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
     width: fit-content;
-
     padding: 13px 20px;
-
     margin-top: 10px;
-
     background-color: #4B262F;
-
     color: #EED3BA;
-
     border: 1px solid #4B262F;
-
     border-radius: 8px;
-
     font-family: monospace;
-
     font-size: 12px;
-
     letter-spacing: 1px;
-
     text-decoration: none;
-
     cursor: pointer;
-
     transition:
         background-color 0.25s ease,
         color 0.25s ease,
@@ -1028,271 +903,699 @@ html {
         transform 0.25s ease;
 }
 
-
 .projectLink:hover {
     background-color: #EED3BA;
-
     color: #4B262F;
-
     border-color: #EED3BA;
-
     transform: translateY(-2px);
 }
-
 
 .projectLink:active {
     transform: translateY(0);
 }
 
+/* =====================================================
+   VA PORTFOLIO PROJECT GROUPS
+===================================================== */
+
+.portfolioIntro {
+    max-width: 750px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.portfolioGroups {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    width: 100%;
+    min-width: 0;
+}
+
+.portfolioGroup {
+    width: 100%;
+    min-width: 0;
+    scroll-margin-top: 110px;
+}
+
+.portfolioGroupHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(238, 211, 186, 0.15);
+}
+
+.portfolioGroupNumber {
+    flex-shrink: 0;
+    color: #B65A6A;
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding-top: 5px;
+}
+
+.portfolioGroupTitle {
+    color: #EED3BA;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    margin: 0 0 10px;
+    overflow-wrap: anywhere;
+}
+
+.portfolioGroupDescription {
+    color: rgba(238, 211, 186, 0.65);
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 650px;
+}
 
 /* =========================
-   RESPONSIVE
+   PROJECT GRID
+========================= */
+
+.portfolioGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 25px;
+    width: 100%;
+    min-width: 0;
+}
+
+.portfolioCard {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    background-color: rgba(28, 26, 25, 0.92);
+    border: 1px solid rgba(238, 211, 186, 0.14);
+    border-radius: 16px;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.portfolioCard:hover {
+    transform: translateY(-5px);
+    border-color: rgba(182, 90, 106, 0.65);
+    background-color: rgba(35, 30, 29, 0.98);
+}
+
+/* =========================
+   CARD TOP / STATUS
+========================= */
+
+.portfolioCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 20px 0;
+}
+
+.portfolioCardNumber {
+    flex-shrink: 0;
+    color: #B5987D;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.portfolioStatus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 75%;
+    padding: 6px 10px;
+    border: 1px solid rgba(238, 211, 186, 0.15);
+    border-radius: 30px;
+    color: #B5987D;
+    font-family: monospace;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: 0.7px;
+    text-align: center;
+}
+
+/* =========================
+   PROJECT IMAGE
+========================= */
+
+.portfolioCardImage {
+    position: relative;
+    width: calc(100% - 40px);
+    height: 220px;
+    margin: 18px 20px 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #151311;
+    flex-shrink: 0;
+}
+
+.portfolioCardImage > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.portfolioCard:hover .portfolioCardImage > img {
+    transform: scale(1.04);
+}
+
+/* =========================
+   PORTFOLIO PLACEHOLDERS
+========================= */
+
+.portfolioCardImage .portfolioPlaceholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 20px;
+
+    box-sizing: border-box;
+    border: 1px dashed rgba(238, 211, 186, 0.2);
+    border-radius: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(75, 38, 47, 0.35),
+        rgba(21, 19, 17, 0.95)
+    );
+
+    text-align: center;
+}
+
+.portfolioPlaceholder span {
+    color: #B65A6A;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+}
+
+.portfolioPlaceholder p {
+    color: rgba(238, 211, 186, 0.8);
+    font-family: monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    margin: 0;
+}
+
+/* =========================
+   PROJECT CARD CONTENT
+========================= */
+
+.portfolioCardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    min-width: 0;
+    padding: 24px 20px;
+}
+
+.portfolioCardCategory {
+    color: #B65A6A;
+    font-family: monospace;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    margin: 0 0 12px;
+}
+
+.portfolioCardTitle {
+    color: #EED3BA;
+    font-size: 22px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    margin: 0 0 14px;
+}
+
+.portfolioCardDescription {
+    color: rgba(238, 211, 186, 0.7);
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    margin: 0 0 22px;
+}
+
+/* =========================
+   TECHNOLOGY / SKILL TAGS
+========================= */
+
+.portfolioTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 22px;
+}
+
+.portfolioTags span {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    padding: 7px 10px;
+    border: 1px solid rgba(238, 211, 186, 0.15);
+    border-radius: 5px;
+    background-color: rgba(21, 19, 17, 0.7);
+    color: #B5987D;
+    font-family: monospace;
+    font-size: 10px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   PROJECT VIEW BUTTON
+========================= */
+
+.portfolioViewButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 13px 18px;
+    margin-top: 5px;
+    border: 1px solid #4B262F;
+    border-radius: 8px;
+    background-color: #4B262F;
+    color: #EED3BA;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.portfolioViewButton:hover {
+    background-color: #EED3BA;
+    color: #4B262F;
+    border-color: #EED3BA;
+}
+
+/* =========================
+   KEYBOARD ACCESSIBILITY
+========================= */
+
+.portfolioViewButton:focus-visible,
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.navLinks a:focus-visible,
+.navDropdownTrigger:focus-visible,
+.navDropdownItem:focus-visible,
+.mobileMenuButton:focus-visible,
+.mobileProjectsToggle:focus-visible,
+.mobileProjectLink:focus-visible {
+    outline: 2px solid #B65A6A;
+    outline-offset: 4px;
+}
+
+/* =========================
+   TABLET
 ========================= */
 
 @media (max-width: 1100px) {
-
     .heroName {
         font-size: 58px;
     }
 
-
     .leftContent {
         margin-left: 6vw;
-
         max-width: 500px;
     }
 
-
     .terminalCard {
         width: 380px;
-
-        height: 260px;
-
+        min-height: 260px;
         right: 8%;
     }
 
-
-    .navLinks {
-        gap: 30px;
+    .navBar {
+        width: calc(100% - 40px);
+        padding: 0 22px;
+        gap: 16px;
     }
 
+    .navLinks {
+        gap: 18px;
+    }
+
+    .navLinks > a,
+    .navDropdownTrigger {
+        font-size: 12px;
+    }
+
+    .connectButton {
+        padding: 12px 18px;
+        font-size: 11px;
+    }
 
     .heroSkills {
         left: 6vw;
-
         right: 6vw;
-
-        top: 74%;
+        top: 79%;
     }
-
 }
 
+/* =========================
+   MOBILE / SMALL TABLET
+========================= */
 
 @media (max-width: 850px) {
-
-    /* =========================
-       MOBILE NAVBAR
-    ========================= */
-
     .navBar {
-        top: 15px;
-
-        padding: 0 25px;
-
-        height: 55px;
+        top: 12px;
+        width: calc(100% - 32px);
+        height: 58px;
+        padding: 0 18px;
+        border-radius: 12px;
     }
 
-
-    .navLinks {
-        display: none;
-    }
-
-
+    .navLinks,
     .connectButton {
         display: none;
     }
-
 
     .mobileMenuButton {
         display: flex;
     }
 
-
-    /* =========================
-       MOBILE MENU
-    ========================= */
-
     .mobileMenu {
         display: block;
+        top: 82px;
     }
 
-
-    /* =========================
-       MOBILE HERO
-    ========================= */
+    .heroSection {
+        min-height: 100svh;
+    }
 
     .heroLeft {
         width: 100%;
-
-        height: 100vh;
-
+        min-height: 100svh;
         transform: translateY(-30px);
     }
-
 
     .heroRight {
         display: none;
     }
 
-
     .leftContent {
         margin-left: 8vw;
-
         margin-right: 8vw;
+        max-width: 600px;
     }
-
 
     .heroName {
         font-size: 52px;
     }
 
-
     .heroDescription {
         max-width: 450px;
     }
 
-
     .heroSkills {
         left: 8vw;
-
         right: 8vw;
-
-        top: 78%;
+        top: auto;
+        bottom: 5%;
+        transform: none;
     }
 
+    .portfolioGroups {
+        gap: 60px;
+    }
+
+    .portfolioGrid {
+        gap: 18px;
+    }
+
+    .portfolioCardImage {
+        height: 180px;
+    }
+
+    .portfolioCardTitle {
+        font-size: 19px;
+    }
+
+    .portfolioCardBody {
+        padding: 20px 16px;
+    }
+
+    .portfolioCardTop {
+        padding: 16px 16px 0;
+    }
+
+    .portfolioGroupTitle {
+        font-size: 17px;
+    }
 }
 
+/* =========================
+   MOBILE
+========================= */
 
-@media (max-width: 500px) {
-
-    .navBar {
-        padding: 0 18px;
+@media (max-width: 600px) {
+    .portfolioIntro {
+        margin-bottom: 40px;
     }
 
+    .portfolioGroups {
+        gap: 45px;
+    }
+
+    .portfolioGroupHeader {
+        gap: 12px;
+        margin-bottom: 22px;
+        padding-bottom: 16px;
+    }
+
+    .portfolioGroupTitle {
+        font-size: 15px;
+        line-height: 1.6;
+        letter-spacing: 1px;
+    }
+
+    .portfolioGroupDescription {
+        font-size: 13px;
+    }
+
+    .portfolioGrid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .portfolioCardImage {
+        height: 210px;
+    }
+
+    .portfolioCardTitle {
+        font-size: 20px;
+    }
+
+    .portfolioCardDescription {
+        font-size: 13px;
+    }
+
+    .portfolioStatus {
+        font-size: 8px;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 500px) {
+    .navBar {
+        width: calc(100% - 24px);
+        padding: 0 14px;
+    }
 
     .logoMark {
         width: 35px;
-
         height: 35px;
     }
 
+    .logoName {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
 
     .heroLeft {
         transform: translateY(-20px);
     }
 
-
     .leftContent {
         margin-left: 7vw;
-
         margin-right: 7vw;
     }
 
-
     .introText {
         font-size: 16px;
-
         letter-spacing: 2px;
-
         margin-bottom: 18px;
     }
 
-
     .heroName {
-        font-size: 43px;
-
+        font-size: clamp(36px, 10vw, 43px);
         letter-spacing: 1px;
-
+        line-height: 1.02;
         margin-bottom: 22px;
     }
 
-
     .roleText {
-        font-size: 16px;
-
-        letter-spacing: 2px;
-
+        font-size: 13px;
+        letter-spacing: 1.2px;
+        line-height: 1.7;
         margin-bottom: 20px;
     }
 
-
     .heroDescription {
         font-size: 15px;
-
         line-height: 1.6;
-
         margin-bottom: 28px;
     }
 
-
     .heroButtons {
         gap: 10px;
-
         flex-wrap: wrap;
     }
-
 
     .primaryButton,
     .secondaryButton {
         padding: 13px 18px;
-
         font-size: 11px;
     }
 
-
     .heroSkills {
         left: 7vw;
-
         right: 7vw;
-
-        top: 79%;
+        bottom: 3%;
     }
-
 
     .heroSkillsHeader p {
         font-size: 10px;
     }
 
+    .heroSkills .skillsTrack {
+        gap: 10px;
+    }
 
     .heroSkills .skillItem {
         font-size: 10px;
-
         padding: 7px 11px;
     }
 
-
     .heroSkills .skillItem svg {
         width: 14px;
-
         height: 14px;
     }
 
-
     .mobileMenu {
-        top: 80px;
-
+        top: 78px;
         left: 12px;
-
         right: 12px;
-
         padding: 20px;
+        max-height: calc(100svh - 95px);
+        overflow-y: auto;
     }
 
-
-    .mobileMenuLinks a {
+    .mobileMenuLinks > a,
+    .mobileProjectsToggle {
         font-size: 12px;
-
         padding: 14px 8px;
     }
 
+    .mobileProjectLink {
+        font-size: 10px;
+        padding: 12px 8px;
+    }
+
+    .portfolioGroupHeader {
+        gap: 10px;
+    }
+
+    .portfolioGroupNumber {
+        font-size: 12px;
+    }
+
+    .portfolioGroupTitle {
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .portfolioCardImage {
+        height: 190px;
+        width: calc(100% - 28px);
+        margin: 16px 14px 0;
+    }
+
+    .portfolioCardTop {
+        padding: 15px 14px 0;
+    }
+
+    .portfolioCardBody {
+        padding: 20px 14px;
+    }
+
+    .portfolioCardTitle {
+        font-size: 18px;
+    }
+
+    .portfolioCardDescription {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+
+    .portfolioTags span {
+        font-size: 9px;
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .portfolioCard:hover,
+    .portfolioCard:hover .portfolioCardImage > img {
+        transform: none;
+    }
 }

@@ -65,6 +65,26 @@ function SkillsSection() {
                 { name: "NETLIFY", icon: siNetlify },
                 { name: "GITHUB", icon: siGithub }
             ]
+        },
+        {
+            number: "05",
+            title: "VIRTUAL ASSISTANT & ADMIN SUPPORT",
+            skills: [
+                { name: "ADMINISTRATIVE ASSISTANCE", icon: null },
+                { name: "EMAIL & INBOX MANAGEMENT", icon: null },
+                { name: "CALENDAR & APPOINTMENT SCHEDULING", icon: null },
+                { name: "DATA ENTRY & SPREADSHEET ORGANIZATION", icon: null },
+                { name: "DOCUMENT PREPARATION & FORMATTING", icon: null },
+                { name: "FILE & INFORMATION MANAGEMENT", icon: null },
+                { name: "ONLINE RESEARCH", icon: null },
+                { name: "TASK TRACKING & COORDINATION", icon: null },
+                { name: "RECORD KEEPING", icon: null },
+                { name: "CUSTOMER SERVICE SUPPORT", icon: null },
+                { name: "WRITTEN COMMUNICATION", icon: null },
+                { name: "ATTENTION TO DETAIL", icon: null },
+                { name: "TIME MANAGEMENT", icon: null },
+                { name: "PROBLEM-SOLVING", icon: null }
+            ]
         }
     ];
 
