@@ -1430,3 +1430,25 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* =========================
+   FIX: SKILLS CAROUSEL ON PHONES
+========================= */
+
+/* Touch devices should not get stuck in the hover-pause state */
+@media (hover: none) and (pointer: coarse) {
+    .heroSkills:hover .skillsTrack {
+        animation-play-state: running;
+    }
+}
+
+/* Keep the skills carousel looping when reduced motion is enabled */
+@media (prefers-reduced-motion: reduce) {
+    .heroSkills .skillsTrack {
+        animation-name: skillsScroll !important;
+        animation-duration: 35s !important;
+        animation-timing-function: linear !important;
+        animation-iteration-count: infinite !important;
+    }
+}
